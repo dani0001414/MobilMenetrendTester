@@ -456,9 +456,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	var versionLink = document.createElement('a');
 	var versionLinkText = document.createTextNode(scriptVersion);
 	versionLink.appendChild(versionLinkText);
-	versionLink.title = "my title text";
+	//versionLink.title = "my title text";
 	//versionLink.href = "http://example.com";
-	document.getElementsByTagName('center')[0].appendChild(versionLink);
+	document.getElementsByTagName('font')[0].appendChild(versionLink);
 
 	//document.getElementsByTagName('font')[0].innerHTML += "<br><br><a style=\"cursor: pointer; color: grey;\">"+scriptVersion+"</a></font></center>";
 	//document.body.innerHTML += "<br><br><center><font size=\"2\"><a style=\"cursor: pointer; color: grey;\">"+scriptVersion+"</a></font></center>"
