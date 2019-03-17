@@ -453,6 +453,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	document.getElementsByClassName("modal-cookie")[0].innerHTML = "A MobilBarát Menetrend a felhasználói élmény növelése érdekében cookie-kat használ a funkciókhoz és a továbbfejlesztéseket segítő statisztikák gyűjtéséhez!<br><span style=\"cursor: pointer; color: grey; text-decoration: underline;\" onclick=\"createcookie('" + policyAgreementCookie + "',1,365,'banner')\">Elfogadom</span>  <span style=\"cursor: pointer; color: grey; text-decoration: underline;\" onclick=\"deleteAllCookies('banner')\">Nem fogadom el</span>  <span style=\"cursor: pointer; color: grey; text-decoration: underline;\" onclick=\"modal_open('cookie_information')\">Bővebb információ</span>";
 	popupContent = document.getElementById("popup_content");
 
+    var brElement = document.createElement('br');
+    document.getElementsByTagName('font')[0].appendChild(brElement);
+    document.getElementsByTagName('font')[0].appendChild(brElement);
+    
 	var versionLink = document.createElement('a');
 	var versionLinkText = document.createTextNode(scriptVersion);
 	versionLink.appendChild(versionLinkText);
