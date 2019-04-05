@@ -19,8 +19,8 @@
 
 const version = "v2";
 
-const PRECACHE = 'precache-' + streamer;
-const RUNTIME = 'runtime' + streamer;
+const PRECACHE = 'precache-' + version;
+const RUNTIME = 'runtime' + version;
 console.log(PRECACHE);
 console.log(RUNTIME);
 // A list of local resources we always want to be cached.
