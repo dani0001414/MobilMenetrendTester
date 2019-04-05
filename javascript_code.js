@@ -330,7 +330,7 @@ function HttpGetFeature(url, callback) {
 }
 
 function HttpGetNorm(url) {
-    if ((cookieSettings == 1) & (curentUserID !=0)) {
+    if ((cookieSettings == 1) & (curentUserID != 0)) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -408,7 +408,7 @@ if (cookieSettings == 1) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementById('CookieAccept').setAttribute("onclick", "createcookie('"+policyAgreementCookie+"',1,365,'banner')");
+    document.getElementById('CookieAccept').setAttribute("onclick", "createcookie('" + policyAgreementCookie + "',1,365,'banner')");
     if ((currenttime > 1554069600) & (currenttime < 1554156000)) {
         document.getElementsByTagName('center')[0].setAttribute('style', '-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); -ms-transform: scale(-1, 1); transform: scale(-1, 1);');
     }
@@ -674,7 +674,7 @@ function HtmlStart() {
             if (streamer == "fyrexxx") { curentUserID = idGenerator() + "_PINGVIN"; }
             if (streamer == "blyyyplays") { curentUserID = idGenerator() + "_bLYYYPLAYS"; }
 
-            if(curentUserID != 0) {createcookie(streamer + 'userid', curentUserID, 365);}
+            if (curentUserID != 0) { createcookie(streamer + 'userid', curentUserID, 365); }
         }
     }
 
@@ -1042,7 +1042,13 @@ function modal_open(i) {
     if (i == "cookie_information") {
         var contentContainer;
         contentContainer = "<br><br><b>[Cookie Információ]</b><br><br>";
-            contentContainer += "<font size=\"1\"><div align=\"left\">A MobilBarát Menetrend által használt cookie-k:<br><br><span style=\"color: grey;\">" + policyAgreementCookie + ":</span><br>A döntésedet tárolja cookie-k használatával kapcsolatban. Ha nem fogadtad el, akkor a többi cookie nem lesz használatban.<br><br><span style=\"color: grey;\">" + themeCookie + ":</span><br>Az általad választott téma bellítását tárolja<br><br><span style=\"color: grey;\">" + newFeatureCookie + ":</span><br>Azt tárolja mikor láttad az új funkciókról szóló értesítést, hogy feleslegesen ne jelenjen meg újra.<br><br><span style=\"color: grey;\">Google Analytics Cookie-k:</span><br>A Google Analitika szolgáltatása használja. Anoním módon rögzítik, hogy miként használod az oldalt. Ez segíti a későbbi fejlesztéseket.<br><br><span style=\"color: grey;\">cachedIDs, cachedTitles, cachedStreamStart, cachedStreamEnd:</span><br>A menetrend id, cím, kezdési idejét, befejezési idejét tárolják, hogy a legközelebbi megnyitáskor a mobil menetrend ki tudja jelezni, hogy mik a változások.<br><br><span style=\"color: grey;\">"+streamer+"userid:</span><br>Részletek, Témaválasztás, Naptárhozzáadás funkciók statisztika gyűjtéséhez generált anoním userid.<br><br><span style=\"color: grey;\">"+streamer+"_scriptversion:</span><br>A jelen MobilMenetrend JS fájl verziószámát tárolja.</div></font>";
+        if (streamer == "wearethevr") {
+            contentContainer += "<font size=\"1\"><div align=\"left\">A MobilBarát Menetrend által használt cookie-k:<br><br><span style=\"color: grey;\">" + policyAgreementCookie + ":</span><br>A döntésedet tárolja cookie-k használatával kapcsolatban. Ha nem fogadtad el, akkor a többi cookie nem lesz használatban.<br><br><span style=\"color: grey;\">" + themeCookie + ":</span><br>Az általad választott téma bellítását tárolja<br><br><span style=\"color: grey;\">" + newFeatureCookie + ":</span><br>Azt tárolja mikor láttad az új funkciókról szóló értesítést, hogy feleslegesen ne jelenjen meg újra.<br><br><span style=\"color: grey;\">" + theVRmmNewInfoCookie + ":</span><br>Azt tárolja mikor láttad az új TheVR Stream Infót, hogy feleslegesen ne jelenjen meg újra.<br><br><span style=\"color: grey;\">Google Analytics Cookie-k:</span><br>A Google Analitika szolgáltatása használja. Anoním módon rögzítik, hogy miként használod az oldalt. Ez segíti a későbbi fejlesztéseket.<br><br><span style=\"color: grey;\">cachedIDs, cachedTitles, cachedStreamStart, cachedStreamEnd:</span><br>A menetrend id, cím, kezdési idejét, befejezési idejét tárolják, hogy a legközelebbi megnyitáskor a mobil menetrend ki tudja jelezni, hogy mik a változások.<br><br><span style=\"color: grey;\">wearethevruserid:</span><br>Részletek, Témaválasztás, Naptárhozzáadás funkciók statisztika gyűjtéséhez generált anoním userid<br><br><span style=\"color: grey;\">wearethevr_scriptversion:</span><br>A jelen MobilMenetrend JS fájl verziószámát tárolja.</div></font>";
+        } else if (streamer == "blyyyplays") {
+            contentContainer += "<font size=\"1\"><div align=\"left\">A MobilBarát Menetrend által használt cookie-k:<br><br><span style=\"color: grey;\">" + policyAgreementCookie + ":</span><br>A döntésedet tárolja cookie-k használatával kapcsolatban. Ha nem fogadtad el, akkor a többi cookie nem lesz használatban.<br><br><span style=\"color: grey;\">" + themeCookie + ":</span><br>Az általad választott téma bellítását tárolja<br><br><span style=\"color: grey;\">" + newFeatureCookie + ":</span><br>Azt tárolja mikor láttad az új funkciókról szóló értesítést, hogy feleslegesen ne jelenjen meg újra.<br><br><span style=\"color: grey;\">Google Analytics Cookie-k:</span><br>A Google Analitika szolgáltatása használja. Anoním módon rögzítik, hogy miként használod az oldalt. Ez segíti a későbbi fejlesztéseket.<br><br><span style=\"color: grey;\">cachedIDs, cachedTitles, cachedStreamStart, cachedStreamEnd:</span><br>A menetrend id, cím, kezdési idejét, befejezési idejét tárolják, hogy a legközelebbi megnyitáskor a mobil menetrend ki tudja jelezni, hogy mik a változások.<br><br><span style=\"color: grey;\">blyyyplaysuserid:</span><br>Részletek, Témaválasztás, Naptárhozzáadás funkciók statisztika gyűjtéséhez generált anoním userid.<br><br><span style=\"color: grey;\">blyyyplays_scriptversion:</span><br>A jelen MobilMenetrend JS fájl verziószámát tárolja.</div></font>";
+        } else {
+            contentContainer += "<font size=\"1\"><div align=\"left\">A MobilBarát Menetrend által használt cookie-k:<br><br><span style=\"color: grey;\">" + policyAgreementCookie + ":</span><br>A döntésedet tárolja cookie-k használatával kapcsolatban. Ha nem fogadtad el, akkor a többi cookie nem lesz használatban.<br><br><span style=\"color: grey;\">" + themeCookie + ":</span><br>Az általad választott téma bellítását tárolja<br><br><span style=\"color: grey;\">" + newFeatureCookie + ":</span><br>Azt tárolja mikor láttad az új funkciókról szóló értesítést, hogy feleslegesen ne jelenjen meg újra.<br><br><span style=\"color: grey;\">Google Analytics Cookie-k:</span><br>A Google Analitika szolgáltatása használja. Anoním módon rögzítik, hogy miként használod az oldalt. Ez segíti a későbbi fejlesztéseket.<br><br><span style=\"color: grey;\">cachedIDs, cachedTitles, cachedStreamStart, cachedStreamEnd:</span><br>A menetrend id, cím, kezdési idejét, befejezési idejét tárolják, hogy a legközelebbi megnyitáskor a mobil menetrend ki tudja jelezni, hogy mik a változások.<br><br><span style=\"color: grey;\">" + streamer + "_scriptversion:</span><br>A jelen MobilMenetrend JS fájl verziószámát tárolja.</div></font>";
+        }
         popupContent.innerHTML = contentContainer;
     }
     if (i == "new") {
