@@ -17,7 +17,7 @@
 //const CACHE_VERSION = '{{ site.time }}';
 
 
-const version = "v2";
+const version = "test";
 
 const PRECACHE = 'precache-' + version;
 const RUNTIME = 'runtime' + version;
