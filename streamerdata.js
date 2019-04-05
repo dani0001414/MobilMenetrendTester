@@ -2,7 +2,7 @@
 /*Streamer adatok megadása*/
 
 //Csatorna pontos neve kis betűkkel.
-var streamer = "wearethevr";
+var streamer = "avid_is_odd";
 //Kép megjelenítése amikor üres a menetrend.
 var noEventsPic = "https://i.imgur.com/5dZn6sc.png";
 //Kép megjelenítése amikor offline a menetrend(nembiztos, hogy megjelenik majd offline állapotban)
