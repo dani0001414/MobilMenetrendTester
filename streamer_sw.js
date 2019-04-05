@@ -17,7 +17,7 @@
 //const CACHE_VERSION = '{{ site.time }}';
 
 
-const version = "test";
+const version = "v2";
 
 const PRECACHE = 'precache-' + version;
 const RUNTIME = 'runtime' + version;
@@ -25,6 +25,7 @@ console.log(PRECACHE);
 console.log(RUNTIME);
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
+
   'https://i.imgur.com/5dZn6sc.png',
 ];
 
