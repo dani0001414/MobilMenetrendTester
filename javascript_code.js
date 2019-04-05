@@ -330,7 +330,7 @@ function HttpGetFeature(url, callback) {
 }
 
 function HttpGetNorm(url) {
-    if (cookieSettings == 1) {
+    if ((cookieSettings == 1) & (curentUserID !=0)) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -674,7 +674,7 @@ function HtmlStart() {
             if (streamer == "fyrexxx") { curentUserID = idGenerator() + "_PINGVIN"; }
             if (streamer == "blyyyplays") { curentUserID = idGenerator() + "_bLYYYPLAYS"; }
 
-            createcookie(streamer + 'userid', curentUserID, 365);
+            if(curentUserID != 0) {createcookie(streamer + 'userid', curentUserID, 365);}
         }
     }
 
