@@ -1,0 +1,6 @@
+A testreszabáshoz a következõ fájlokat kell módosítanod:
+streamerdata.js
+manifest.webmanifest
+
+Saját ikon hozzáadása:
+144x144pixel felbontású png formátumú fájlt helyezz icon névvel a többi fájl mellé.
