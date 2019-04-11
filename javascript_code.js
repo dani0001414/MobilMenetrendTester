@@ -1,6 +1,6 @@
 //Esetleg ugyanezt használni a TheVR-hoz is és a kód illeszti be az oldalra a streamerdata.js-t ahonnan meg ez a script tudja lekérni az infót.
 var ApiKey = "kimne78kx3ncx6brgo4mv6wki5h1ko";
-var scriptVersion = "2.6.2";
+var scriptVersion = "2.6.3";
 try {
     if (streamer === null) { }
     var policyAgreementCookie = streamer + "cookiepolicysagreement";
@@ -66,7 +66,11 @@ function brcreator(where, type, count) {
 
 function MoveParent(newparent) {
     var newParent = document.getElementById(newparent);
-    var oldParent = document.querySelector('body > center > div:nth-child(68)')
+    if ((streamer == "wearethevr") & (scriptVersion== "2.6.3")) {
+        var oldParent = document.querySelector('body > center > div:nth-child(68)');
+    } else {
+        var oldParent = document.querySelector('body > center > div:nth-child(5)');
+    }
 
     while (oldParent.childNodes.length > 0) {
         newParent.appendChild(oldParent.childNodes[0]);
@@ -211,14 +215,14 @@ function Light(length) {
 }
 
 function Dark(length) {
-   
+
     for (var i = 0; i < length; i++) {
         try {
             document.getElementById(i + "_day_created").style.color = "lightgrey";
             document.getElementById(i + "_day_created").style.textShadow = "2px 2px #484848";
             document.getElementById(i + "_day_created").style.borderBottom = "2px solid #2e2b35";
         } catch (err) {
-    
+
         }
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
@@ -418,7 +422,7 @@ if (cookieSettings == 1) {
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-    document.getElementById('CookieAccept').setAttribute("onclick", "createcookie('" + policyAgreementCookie + "',1,365,'banner')");
+    if(streamer != "wearethevr") {document.getElementById('CookieAccept').setAttribute("onclick", "createcookie('" + policyAgreementCookie + "',1,365,'banner')");}
     if ((currenttime > 1554069600) & (currenttime < 1554156000)) {
         document.getElementsByTagName('center')[0].setAttribute('style', '-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); -ms-transform: scale(-1, 1); transform: scale(-1, 1);');
     }
