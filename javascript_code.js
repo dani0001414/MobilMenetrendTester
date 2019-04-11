@@ -44,7 +44,7 @@ function divcreator(idname, where) {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
         if (iDiv.id != "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
         if (iDiv.id == "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'color: grey;'); }
-        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #2e2b35 solid 2px;'); }
+        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #2e2b35 solid 2px;padding-bottom: 2px;'); }
         if (iDiv.id == "0_day_created") { document.getElementById(iDiv.id).style.margin = "8px 0px 22px 0px"; }
         if (0 < iDiv.id.search("description_created")) { document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
 
