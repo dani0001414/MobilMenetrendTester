@@ -31,73 +31,6 @@ CreateValidManifest();
 var internetStatus = "online";
 var currenttime = CurrentTime();
 
-function convertTwitchChat(message) {
-    var twitchMessage;
-    var twitchUser;
-    var emotes;
-    var streamerChat = streamer;
-
-    /**Split függvényel ésegyébb eljárásokkal az egybefüggő szöveg lekérdezést tömbösítjük. */
-    message = message.split(";");
-
-    for (var i = 0; i < message.length; i++) {
-        message[i] = message[i].split("=");
-        message[i][0] = message[i][0].replace("-", "");
-        if (message[i][1] == "") { message[i][1] = "none"; }
-        if (message[i][0] == "usertype") {
-            twitchMessage = message[i][1].substring(message[i][1].search("PRIVMSG") + "PRIVMSG".length + streamerChat.length + 4);
-        }
-        /**A split függvényel szétszedett adatokat tovább rendszerezzük és alakítjuk a célnak. */
-        if (message[i][0] == "displayname") { twitchUser = message[i][1]; }
-        if (message[i][0] == "emotes") {
-            emotes = message[i][1];
-            if (emotes != "none") {
-                emotes = emotes.split("/");
-                for (var j = 0; j < emotes.length; j++) {
-                    emotes[j] = emotes[j].split(",");
-                    var temp = emotes[j][0].split(":");
-                    emotes[j].unshift(temp[0]);
-                    emotes[j][1] = temp[1];
-                }
-
-            }
-        }
-    }
-    /**ChatArray Json struktúrába rakjuk(emotes rész valószínűleg felesleges majd átalakítom másként de így is működik) */
-    var chatArray = {
-        "twitchUser": twitchUser,
-        "twitchMessage": twitchMessage,
-        "emotes": emotes,
-    };
-
-    var link, emotePosition;
-    var emoteName = [];
-    var emoteLink = [];
-
-    /**Az Emotikonokon tovább gyúrúnk. Az emotikonok helyzetét leíró részt a célnak megfelelően formázzuk és substringel a nevét és linkhez használatós kódját eltároljuk.*/
-    if (emotes != "none") {
-        var emotesLength = Object.keys(chatArray.emotes).length;
-        for (var i = 0; i < emotesLength; i++) {
-            var insideEmotesLength = Object.keys(chatArray.emotes[i]).length;
-            for (var j = 0; j < insideEmotesLength; j++) {
-                if (j != 0) {
-                    emotePosition = chatArray.emotes[i][j].split("-");
-                    emoteName.push(twitchMessage.substring(parseInt(emotePosition[0]), parseInt(emotePosition[1]) + 1));
-                    emoteLink.push(chatArray.emotes[i][0]);
-                }
-            }
-        }
-        /**Az eltárolt emote nevek és kódok alapján az emotikon neveket lecseréljük az emitokonra mutató képre. */
-        for (var i = 0; i < emoteName.length; i++) {
-            link = " <img  src=\"https://static-cdn.jtvnw.net/emoticons/v1/" + emoteLink[i] + "/1.0\"></img> ";
-            twitchMessage = twitchMessage.replace(emoteName[i], link);
-            chatArray.twitchMessage = twitchMessage;
-        }
-    }
-
-    return chatArray;
-}
-
 function CurrentTime() {
     var currentMillisecTimestamp = new Date().getTime();
     return currentMillisecTimestamp / 1000;
@@ -109,9 +42,9 @@ function divcreator(idname, where) {
     //iDiv.className = 'block';
     if (where == "body") {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
-        if (iDiv.id != "footer_created") { document.getElementById(iDiv.id).setAttribute('style', ' width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
+        if (iDiv.id != "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
         if (iDiv.id == "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'color: grey;'); }
-        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'width: 100%;color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #1b1b1b solid 2px;'); }
+        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #1b1b1b solid 2px;'); }
         if (0 < iDiv.id.search("description_created")) { document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
 
     } else {
@@ -472,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     if ((currenttime > 1554069600) & (currenttime < 1554156000)) {
         document.getElementsByTagName('center')[0].setAttribute('style', '-moz-transform: scale(-1, 1); -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); -ms-transform: scale(-1, 1); transform: scale(-1, 1);');
     }
-
+    document.body.style.margin = "0px";
     if ((themeStatus == "light") & (cookieSettings == 1)) {
         Light(0);
     }
@@ -902,6 +835,8 @@ function HtmlStart() {
             document.getElementById(timeId + "_created").innerHTML = "<div style=\"overflow: hidden; width: 320px;\">    <div style=\"float:left; width: 155px\"><center>" + startTime[0] + "<br>" + startTime[1] + "</center></div>    <div style=\"float:left; width: 10px\"><center>-</center></div>	<div style=\"overflow: hidden; width: 155px float:right;\"><center>" + endTime[0] + "<br>" + endTime[1] + "</center></div></div>";
         }
     }
+
+    //Ha a téma világos akkor a létrehozott DIV-eket átállítjuk
     if (themeStatus == "light") {
         Light(eventsLength);
     }
@@ -1015,12 +950,6 @@ function OfflineSite() {
     var streamEnd = JSON.parse(decodeURIComponent(getCookie("cachedStreamEnd")));
     offlineLength = titles.length;
 
-    if (themeStatus == "dark") {
-        Dark(offlineLength);
-    }
-    if (themeStatus == "light") {
-        Light(offlineLength);
-    }
 
     for (var i = 0; i < titles.length; i++) {
         var titleId = i + "_cim";
@@ -1057,6 +986,10 @@ function OfflineSite() {
         } else {
             if ((countdownStart < 7200) & (countdownStart > 0) & (liveStatus != "live")) { Countdown(streamStart[i]); } else { document.getElementById(timeId + "_created").innerHTML = "<div style=\"overflow: hidden; width: 320px;\">    <div style=\"float:left; width: 155px\"><center>" + startTime[0] + "<br>" + startTime[1] + "</center></div>    <div style=\"float:left; margin-left:10px; margin-top:10px\"><center>-</center></div>	<div style=\"overflow: hidden; width: 155px float:right;\"><center>" + endTime[0] + "<br>" + endTime[1] + "</center></div></div>"; }
         }
+    }
+    //Létrehozott DIV-ek színének átváltása.
+    if (themeStatus == "light") {
+        Light(offlineLength);
     }
 }
 
