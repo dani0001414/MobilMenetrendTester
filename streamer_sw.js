@@ -26,7 +26,7 @@ console.log(RUNTIME);
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
 //Beállítandó rész Mást ne módosíts.
-  'eleresiut',  //streamerdata.js-ben megadott offlinePic azaz Offline-nek szánt kép elérési útját illeszd be ide. Mást ne módosíts!
+  'icon.png',  //streamerdata.js-ben megadott offlinePic azaz Offline-nek szánt kép elérési útját illeszd be ide. Mást ne módosíts!
 ];
 
 // The install handler takes care of precaching the resources we always need.
