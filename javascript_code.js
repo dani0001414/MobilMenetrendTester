@@ -211,14 +211,15 @@ function Light(length) {
 }
 
 function Dark(length) {
-    try {
-        document.getElementById(i + "_day_created").style.color = "lightgrey";
-        document.getElementById(i + "_day_created").style.textShadow = "2px 2px #484848";
-        document.getElementById(i + "_day_created").style.borderBottom = "2px solid #2e2b35";
-    } catch (err) {
-
-    }
+   
     for (var i = 0; i < length; i++) {
+        try {
+            document.getElementById(i + "_day_created").style.color = "lightgrey";
+            document.getElementById(i + "_day_created").style.textShadow = "2px 2px #484848";
+            document.getElementById(i + "_day_created").style.borderBottom = "2px solid #2e2b35";
+        } catch (err) {
+    
+        }
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
             document.getElementById(i + "_description_created").style.border = "1px solid #2e2b35";
