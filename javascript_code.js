@@ -243,16 +243,16 @@ function Light(length) {
 
     for (var i = 0; i < length; i++) {
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
-            document.getElementById(i + "_description").style.backgroundColor = "white";
-            document.getElementById(i + "_description").style.border = "1px solid #e5e3e8";
-            document.getElementById(i + "_description").style.color = "black";
+            document.getElementById(i + "_description_created").style.backgroundColor = "white";
+            document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
+            document.getElementById(i + "_description_created").style.color = "black";
         } else {
-            document.getElementById(i).style.backgroundColor = "white";
-            document.getElementById(i).style.border = "1px solid #e5e3e8";
-            document.getElementById(i).style.color = "black";
-            document.getElementById(i + "_description").style.backgroundColor = "white";
-            document.getElementById(i + "_description").style.border = "1px solid #e5e3e8";
-            document.getElementById(i + "_description").style.color = "black";
+            document.getElementById(i + "_created").style.backgroundColor = "white";
+            document.getElementById(i + "_created").style.border = "1px solid #e5e3e8";
+            document.getElementById(i + "_created").style.color = "black";
+            document.getElementById(i + "_description_created").style.backgroundColor = "white";
+            document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
+            document.getElementById(i + "_description_created").style.color = "black";
         }
 
     }
@@ -271,16 +271,16 @@ function Dark(length) {
 
     for (var i = 0; i < length; i++) {
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
-            document.getElementById(i + "_description").style.backgroundColor = "#17141f";
-            document.getElementById(i + "_description").style.border = "1px solid #2e2b35";
-            document.getElementById(i + "_description").style.color = "#c3c1c8";
+            document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
+            document.getElementById(i + "_description_created").style.border = "1px solid #2e2b35";
+            document.getElementById(i + "_description_created").style.color = "#c3c1c8";
         } else {
-            document.getElementById(i).style.backgroundColor = "#17141f";
-            document.getElementById(i).style.border = "1px solid #2e2b35";
-            document.getElementById(i).style.color = "#c3c1c8";
-            document.getElementById(i + "_description").style.backgroundColor = "#17141f";
-            document.getElementById(i + "_description").style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
-            document.getElementById(i + "_description").style.color = "#c3c1c8";
+            document.getElementById(i + "_created").style.backgroundColor = "#17141f";
+            document.getElementById(i + "_created").style.border = "1px solid #2e2b35";
+            document.getElementById(i + "_created").style.color = "#c3c1c8";
+            document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
+            document.getElementById(i + "_description_created").style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
+            document.getElementById(i + "_description_created").style.color = "#c3c1c8";
         }
     }
     document.body.style.Color = "#c3c1c8";
@@ -534,9 +534,9 @@ function PUBGStatDownload(data) {
     PUBGStat = data;
 
     if (currenttime > stramStartFirstElement) {
-        document.getElementById("1_description").innerHTML = PUBGStat;
+        document.getElementById("1_description_created").innerHTML = PUBGStat;
     } else {
-        document.getElementById("0_description").innerHTML = PUBGStat;
+        document.getElementById("0_description_created").innerHTML = PUBGStat;
     }
 }
 
@@ -643,9 +643,9 @@ function EventsArray3(data) {
         titleId = i + "_cim";
         if (eventsDescriptions[i].data.event.premiere != null) {
             if ((eventsDescriptions[i].data.event.premiere.__typename == "Premiere")) {
-                document.getElementById(i).style.backgroundColor = "#e52e26";
-                document.getElementById(i).style.border = "1px solid #0c3033";
-                document.getElementById(i).style.color = "white";
+                document.getElementById(i + "_created").style.backgroundColor = "#e52e26";
+                document.getElementById(i + "_created").style.border = "1px solid #0c3033";
+                document.getElementById(i + "_created").style.color = "white";
                 document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://i.imgur.com/VFXLMAL.png\"><br><b>" + events[i].node.title + "</b></div></p>";
             }
         }
@@ -854,14 +854,15 @@ function HtmlStart() {
             nap[i] = "Ma";
         } else {
             nap[i] = napok[xx.getDay()];
-            
+
             var weekDistance = ((StreamWeekStart - CurrentWeekStart) / 7);
+            if (((sn - cn) == 1) & (StreamWeekStart == CurrentWeekStart)) { nap[i] = "Holnap"; }
             if (weekDistance == 0) { }
             if (weekDistance == 1) { nap[i] = "Jövőhét " + nap[i] }
-            if (weekDistance == 2) { nap[i] = "Jövőhét Utáni " + nap[i] }  
-            if ((weekDistance != 0) & (weekDistance != 1) & (weekDistance != 2)) {nap[i]=startTime[0] + " " + nap[i]; }
-        }       
-        
+            if (weekDistance == 2) { nap[i] = "Jövőhét Utáni " + nap[i] }
+            if ((weekDistance != 0) & (weekDistance != 1) & (weekDistance != 2)) { nap[i] = startTime[0] + " " + nap[i]; }
+        }
+
         if (i != 0) {
             if (nap[i - 1] == nap[i]) { } else {
                 divcreator(i + "_day", "body");
@@ -921,24 +922,29 @@ function HtmlStart() {
         document.getElementById("0_created").style.color = "#c3c1c8";
         document.getElementById("0_cim_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"https://i.imgur.com/o1kyCnf.png\"></a><br><b>" + titleLive + "</b>";
         document.getElementById("0_cover_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"" + coverLive + "\" class=\"aspect__fill\" width=\"320\"></a>";
+        document.getElementById("0_day_created").style.display = 'none';
     } else if ((liveStatus == "live") & (currenttime < streamEndFirstElement) & (currenttime > stramStartFirstElement)) {
         document.getElementById("1_created").style.backgroundColor = "#4b367c";
         document.getElementById("1_created").style.color = "#c3c1c8";
         document.getElementById("1_cim_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"https://i.imgur.com/o1kyCnf.png\"></a><br><b>" + titleLive + "</b>";
         document.getElementById("1_cover_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"" + coverLive + "\" class=\"aspect__fill\" width=\"320\"></a>";
+        document.getElementById("0_day_created").style.display = 'none';
     } else if ((liveStatus == "live") & (currenttime < streamEndZeroElement) & (currenttime > streamStartZeroElement)) {
         document.getElementById("0_created").style.backgroundColor = "#4b367c";
         document.getElementById("0_created").style.color = "#c3c1c8";
         document.getElementById("0_cim_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"https://i.imgur.com/o1kyCnf.png\"></a><br><b>" + titleLive + "</b>";
         document.getElementById("0_cover_created").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"" + coverLive + "\" class=\"aspect__fill\" width=\"320\"></a>";
+        document.getElementById("0_day_created").style.display = 'none';
     } else if ((liveStatus != "live") & (currenttime < streamEndZeroElement) & (currenttime > streamStartZeroElement)) {  /*Ha előfordulna, hogy később indítják a streamet akkormég vagy-ként liveTimestamp helyett currenttime-al is vizsgálni. */
         document.getElementById("0_cim_created").innerHTML = "<img src=\"https://i.imgur.com/ZNlNn8J.png\"><br><b>" + events[0].node.title + "</b>";
+        document.getElementById("0_day_created").style.display = 'none';
     } else if ((liveStatus == "live") & readyCheck) {
         document.getElementById("meglepi").style.display = 'block';
         document.getElementById("meglepi_br").style.display = 'block';
         document.getElementById("meglepi_cim").innerHTML = "<a target=\"_blank\" href=\"" + twitchLink + "\"><img src=\"https://i.imgur.com/gu6M3eu.png\"></a><br><b>" + titleLive + "</b>";
         document.getElementById("meglepi_cover").innerHTML = "<img src=\"" + coverLive + "\" class=\"aspect__fill\" width=\"320\">";
         document.getElementById("meglepi_time").innerHTML = liveDateStart + "<br>" + liveStart[1] + "-Ameddig tart</p>";
+
     }
     /*Változtatás : Ha az events tömb hosszúsága nulla és élő közvetítés van akkor meglepi stream. Ellenkező esetbeh ha nincs stream és csak a tömb hossza nulla akkor no_stream div feltöltése a rejtés megjelenítés helyett. Html-ben mindig betöltődött a 125kb nagyságú kép rejtésből megjelenítéses módszernél. ) */
     if ((eventsLength == 0) & (liveStatus == "live") & readyCheck) {
@@ -1026,10 +1032,16 @@ function OfflineSite() {
 
         var startTime = timestampToTime(streamStart[i]).split("<br>");
         var endTime = timestampToTime(streamEnd[i]).split("<br>");
-
+        //ide is a div létrehozás
+        ivcreator(i, "body");
+        divcreator(titleId, i);
+        divcreator(coverId, i);
+        divcreator(timeId, i);
+        document.getElementById(i + "_created").innerHTML += "<span id=\"streamspan\" style=\"cursor:pointer;\" onclick=\"hide_and_show('" + i + "_description_created'," + i + ")\">☰</span>";
+        divcreator(i + "_description", "body");
+        brcreator("center", "tag", 0);
         /*Feltölteni kívánt Div-ek megjelenítése a rejtésből és adatokkal való feltöltésük*/
-        document.getElementById(i).style.display = 'block';
-        document.getElementById(brId).style.display = 'block';
+       
         document.getElementById(titleId + "_created").innerHTML = "<p><b>" + titles[i] + "</b></p>";
         document.getElementById(coverId + "_created").innerHTML = "<div style=\"background-color: black; height: 180px\" ></div>";
         document.getElementById(timeId + "_created").innerHTML = startTime[0] + "<br>" + startTime[1] + "-" + endTime[1];
