@@ -1,6 +1,6 @@
 {
-    "name": "DanX27 MobilMenetrend",  
-    "short_name": "DanX27 MM",
+    "name": "Mobil Menetrend Rendes neve",  
+    "short_name": "Mobil Menetrend Rövidített neve",
     "display": "standalone",
     "orientation": "natural",
     "start_url": ".",
@@ -8,7 +8,7 @@
     "theme_color": "#6441A4",
     "icons": [
         {
-            "src": "icon_144.png",
+            "src": "icon.png",
             "sizes": "144x144",
             "type": "image/png"
         }
