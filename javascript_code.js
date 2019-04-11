@@ -179,7 +179,7 @@ function Light(length) {
         try {
             document.getElementById(i+"_day_created").style.color ="#969696";
             document.getElementById(i+"_day_created").style.textShadow = "2px 2px #cecece";
-            document.getElementById(i+"_day_created").style.border= "2px solid #dedede";
+            document.getElementById(i+"_day_created").style.borderBottom= "2px solid #dedede";
         }
         catch(err) {
 
@@ -906,33 +906,33 @@ function HtmlStart() {
         for (i = 0; i < newEventsPosition.length; i++) {
             j = newEventsPosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j).style.backgroundColor = "#3f7186";
-            document.getElementById(j).style.border = "1px solid #022e40";
-            document.getElementById(j).style.color = "white";
+            document.getElementById(j+"_created").style.backgroundColor = "#3f7186";
+            document.getElementById(j+"_created").style.border = "1px solid #022e40";
+            document.getElementById(j+"_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/new_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedTimePosition.length; i++) {
             j = changedTimePosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j).style.backgroundColor = "#b9ac73";
-            document.getElementById(j).style.border = "1px solid #3e3922";
-            document.getElementById(j).style.color = "white";
+            document.getElementById(j+"_created").style.backgroundColor = "#b9ac73";
+            document.getElementById(j+"_created").style.border = "1px solid #3e3922";
+            document.getElementById(j+"_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/time_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedAllPosition.length; i++) {
             j = changedAllPosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j).style.backgroundColor = "#3f7186";
-            document.getElementById(j).style.border = "1px solid #022e40";
-            document.getElementById(j).style.color = "white";
+            document.getElementById(j+"_created").style.backgroundColor = "#3f7186";
+            document.getElementById(j+"_created").style.border = "1px solid #022e40";
+            document.getElementById(j+"_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/new_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedTitlePosition.length; i++) {
             j = changedTitlePosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j).style.backgroundColor = "#63c27e";
-            document.getElementById(j).style.border = "1px solid #417951";
-            document.getElementById(j).style.color = "white";
+            document.getElementById(j+"_created").style.backgroundColor = "#63c27e";
+            document.getElementById(j+"_created").style.border = "1px solid #417951";
+            document.getElementById(j+"_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/title_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
 
