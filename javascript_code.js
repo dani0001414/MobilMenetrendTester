@@ -177,7 +177,9 @@ function Light(length) {
 
     for (var i = 0; i < length; i++) {
         try {
-            document.getElementById(i+"_day_created").style.color ="black";
+            document.getElementById(i+"_day_created").style.color ="#969696";
+            document.getElementById(i+"_day_created").style.textShadow = "2px 2px #cecece";
+            document.getElementById(i+"_day_created").style.border= "2px solid #dedede";
         }
         catch(err) {
 
