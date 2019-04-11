@@ -586,12 +586,8 @@ function EventsArray2(data) {
     eventsLength = events.length;
 
 
-    if (themeStatus == "dark") {
-        Dark(eventsLength);
-    }
-    if (themeStatus == "light") {
-        Light(eventsLength);
-    }
+    
+    
 
     if (titleLive != null) {
         liveStatus = "live";
@@ -906,7 +902,9 @@ function HtmlStart() {
             document.getElementById(timeId + "_created").innerHTML = "<div style=\"overflow: hidden; width: 320px;\">    <div style=\"float:left; width: 155px\"><center>" + startTime[0] + "<br>" + startTime[1] + "</center></div>    <div style=\"float:left; width: 10px\"><center>-</center></div>	<div style=\"overflow: hidden; width: 155px float:right;\"><center>" + endTime[0] + "<br>" + endTime[1] + "</center></div></div>";
         }
     }
-
+    if (themeStatus == "light") {
+        Light(eventsLength);
+    }
     //Footer Áthelejés
     divcreator("footer", "body");
     MoveParent("footer_created");
@@ -1033,7 +1031,7 @@ function OfflineSite() {
         var startTime = timestampToTime(streamStart[i]).split("<br>");
         var endTime = timestampToTime(streamEnd[i]).split("<br>");
         //ide is a div létrehozás
-        ivcreator(i, "body");
+        divcreator(i, "body");
         divcreator(titleId, i);
         divcreator(coverId, i);
         divcreator(timeId, i);
