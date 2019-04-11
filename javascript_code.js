@@ -44,20 +44,13 @@ function divcreator(idname, where) {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
         if (iDiv.id != "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
         if (iDiv.id == "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'color: grey;'); }
-        if (0 < iDiv.id.search("day_created")) {
-            document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #1b1b1b solid 2px;');
-            if (themeStatus == "light") {
-                document.getElementById(iDiv.id).style.color = "black";
-            }
-        }
-        if (iDiv.id == "0_day_created") { document.getElementById(iDiv.id).style.margin = "8px 0px 22px 0px"; }
+        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #1b1b1b solid 2px;'); }
+        if (iDiv.id == "0_day_created") { document.getElementById(iDiv.id).style.margin= "8px 0px 22px 0px"; }
         if (0 < iDiv.id.search("description_created")) { document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
 
     } else {
         document.getElementById(where + "_created").appendChild(iDiv);
     }
-
-
 }
 
 function brcreator(where, type, count) {
@@ -183,11 +176,17 @@ function TimeConvert(a) {
 function Light(length) {
 
     for (var i = 0; i < length; i++) {
+        try {
+            document.getElementById(i+"_day_created").style.color ="black";
+        }
+        catch(err) {
+
+        }
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             document.getElementById(i + "_description_created").style.backgroundColor = "white";
             document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
             document.getElementById(i + "_description_created").style.color = "black";
-
+            
         } else {
             document.getElementById(i + "_created").style.backgroundColor = "white";
             document.getElementById(i + "_created").style.border = "1px solid #e5e3e8";
@@ -528,8 +527,8 @@ function EventsArray2(data) {
     eventsLength = events.length;
 
 
-
-
+    
+    
 
     if (titleLive != null) {
         liveStatus = "live";
@@ -977,7 +976,7 @@ function OfflineSite() {
         divcreator(i + "_description", "body");
         brcreator("center", "tag", 0);
         /*Feltölteni kívánt Div-ek megjelenítése a rejtésből és adatokkal való feltöltésük*/
-
+       
         document.getElementById(titleId + "_created").innerHTML = "<p><b>" + titles[i] + "</b></p>";
         document.getElementById(coverId + "_created").innerHTML = "<div style=\"background-color: black; height: 180px\" ></div>";
         document.getElementById(timeId + "_created").innerHTML = startTime[0] + "<br>" + startTime[1] + "-" + endTime[1];
