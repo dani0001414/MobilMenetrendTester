@@ -44,8 +44,8 @@ function divcreator(idname, where) {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
         if (iDiv.id != "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
         if (iDiv.id == "footer_created") { document.getElementById(iDiv.id).setAttribute('style', 'color: grey;'); }
-        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #1b1b1b solid 2px;'); }
-        if (iDiv.id == "0_day_created") { document.getElementById(iDiv.id).style.margin= "8px 0px 22px 0px"; }
+        if (0 < iDiv.id.search("day_created")) { document.getElementById(iDiv.id).setAttribute('style', 'margin: 22px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-bottom: #2e2b35 solid 2px;'); }
+        if (iDiv.id == "0_day_created") { document.getElementById(iDiv.id).style.margin = "8px 0px 22px 0px"; }
         if (0 < iDiv.id.search("description_created")) { document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;'); }
 
     } else {
@@ -177,18 +177,18 @@ function Light(length) {
 
     for (var i = 0; i < length; i++) {
         try {
-            document.getElementById(i+"_day_created").style.color ="#969696";
-            document.getElementById(i+"_day_created").style.textShadow = "2px 2px #cecece";
-            document.getElementById(i+"_day_created").style.borderBottom= "2px solid #dedede";
+            document.getElementById(i + "_day_created").style.color = "#969696";
+            document.getElementById(i + "_day_created").style.textShadow = "2px 2px #cecece";
+            document.getElementById(i + "_day_created").style.borderBottom = "2px solid #e5e3e8";
         }
-        catch(err) {
+        catch (err) {
 
         }
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             document.getElementById(i + "_description_created").style.backgroundColor = "white";
             document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
             document.getElementById(i + "_description_created").style.color = "black";
-            
+
         } else {
             document.getElementById(i + "_created").style.backgroundColor = "white";
             document.getElementById(i + "_created").style.border = "1px solid #e5e3e8";
@@ -211,7 +211,13 @@ function Light(length) {
 }
 
 function Dark(length) {
+    try {
+        document.getElementById(i + "_day_created").style.color = "lightgrey";
+        document.getElementById(i + "_day_created").style.textShadow = "2px 2px #484848";
+        document.getElementById(i + "_day_created").style.borderBottom = "2px solid #2e2b35";
+    } catch (err) {
 
+    }
     for (var i = 0; i < length; i++) {
         if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
@@ -529,8 +535,8 @@ function EventsArray2(data) {
     eventsLength = events.length;
 
 
-    
-    
+
+
 
     if (titleLive != null) {
         liveStatus = "live";
@@ -906,33 +912,33 @@ function HtmlStart() {
         for (i = 0; i < newEventsPosition.length; i++) {
             j = newEventsPosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j+"_created").style.backgroundColor = "#3f7186";
-            document.getElementById(j+"_created").style.border = "1px solid #022e40";
-            document.getElementById(j+"_created").style.color = "white";
+            document.getElementById(j + "_created").style.backgroundColor = "#3f7186";
+            document.getElementById(j + "_created").style.border = "1px solid #022e40";
+            document.getElementById(j + "_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/new_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedTimePosition.length; i++) {
             j = changedTimePosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j+"_created").style.backgroundColor = "#b9ac73";
-            document.getElementById(j+"_created").style.border = "1px solid #3e3922";
-            document.getElementById(j+"_created").style.color = "white";
+            document.getElementById(j + "_created").style.backgroundColor = "#b9ac73";
+            document.getElementById(j + "_created").style.border = "1px solid #3e3922";
+            document.getElementById(j + "_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/time_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedAllPosition.length; i++) {
             j = changedAllPosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j+"_created").style.backgroundColor = "#3f7186";
-            document.getElementById(j+"_created").style.border = "1px solid #022e40";
-            document.getElementById(j+"_created").style.color = "white";
+            document.getElementById(j + "_created").style.backgroundColor = "#3f7186";
+            document.getElementById(j + "_created").style.border = "1px solid #022e40";
+            document.getElementById(j + "_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/new_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
         for (i = 0; i < changedTitlePosition.length; i++) {
             j = changedTitlePosition[i];
             var titleId = j + "_cim";
-            document.getElementById(j+"_created").style.backgroundColor = "#63c27e";
-            document.getElementById(j+"_created").style.border = "1px solid #417951";
-            document.getElementById(j+"_created").style.color = "white";
+            document.getElementById(j + "_created").style.backgroundColor = "#63c27e";
+            document.getElementById(j + "_created").style.border = "1px solid #417951";
+            document.getElementById(j + "_created").style.color = "white";
             document.getElementById(titleId + "_created").innerHTML = "<div style=\"color: #fafbff\" ><img src=\"https://dani0001414.github.io/TheVRMobilMenetrend/title_stream.png\"><br><b>" + events[j].node.title + "</b></div></p>";
         }
 
@@ -978,7 +984,7 @@ function OfflineSite() {
         divcreator(i + "_description", "body");
         brcreator("center", "tag", 0);
         /*Feltölteni kívánt Div-ek megjelenítése a rejtésből és adatokkal való feltöltésük*/
-       
+
         document.getElementById(titleId + "_created").innerHTML = "<p><b>" + titles[i] + "</b></p>";
         document.getElementById(coverId + "_created").innerHTML = "<div style=\"background-color: black; height: 180px\" ></div>";
         document.getElementById(timeId + "_created").innerHTML = startTime[0] + "<br>" + startTime[1] + "-" + endTime[1];
