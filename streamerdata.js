@@ -2,11 +2,11 @@
 /*Streamer adatok megadása*/
 
 //A twitch neved amivel a csatorna elérhető --> http://twitch.tv/twitchneved.
-var streamer = "tanarur";
+var streamer = "danx27";
 //Kép megjelenítése amikor üres a menetrend.
-var noEventsPic = "https://peldakep.hu/kep.png";
+var noEventsPic = "icon.png";
 //Kép megjelenítése amikor offline a menetrend(nembiztos, hogy megjelenik majd offline állapotban)
-var offlinePic = "https://peldakep.hu/kep.png";
+var offlinePic = "icon.png";
 //Offline állapotban megjelenő szöveg
 var offlineText = "Nincs internet!"; 
 //Üres menetrendkor megjelenő szöveg

@@ -1,6 +1,6 @@
 {
-    "name": "Mobil Menetrend Rendes neve",  
-    "short_name": "Mobil Menetrend Rövidített neve",
+    "name": "DanX27 MobilMenetrend",  
+    "short_name": "DanX27 MobilMenetrend",
     "display": "standalone",
     "orientation": "natural",
     "start_url": ".",
