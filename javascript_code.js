@@ -835,7 +835,7 @@ function HtmlStart() {
     } 
     if (cookieSettings ==1) {
         if(oldScriptVersion != scriptVersion) {
-            modal_open("new");
+            modal_open("newScriptLoaded");
         }
     }
 
