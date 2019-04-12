@@ -1,1 +1,16 @@
-{"name":"TheVR MobilBarát Menetrend","short_name":"TheVR Mobil Menetrend","display":"standalone","orientation":"natural","start_url":"https://thevr.hu/mm/mm.html","background_color":"#f7f7f7","theme_color":"#6441A4","icons":[{"src":"https://i.imgur.com/lEoVkjt.png","sizes":"144x144","type":"image/png"}]}
+{
+    "name": "Mobil Menetrend Rendes neve",  
+    "short_name": "Mobil Menetrend Rövidített neve",
+    "display": "standalone",
+    "orientation": "natural",
+    "start_url": ".",
+    "background_color": "#f7f7f7",
+    "theme_color": "#6441A4",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
