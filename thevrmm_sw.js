@@ -15,10 +15,10 @@ self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.');
   // You can use `respondWith()` to answer immediately, without waiting for the
   // network response to reach the service worker...
-  var same_origin = event.request.url.startsWith(self.location.origin);
-  var javascript = event.request.url.startsWith('https://dani0001414.github.io/TheVRMobilMenetrend/javascript_code.js');
-  var google_fonts = event.request.url.startsWith('https://fonts');
-  var imgur = event.request.url.startsWith('https://i.imgur.com/9KP46NF.png');
+  var same_origin = evt.request.url.startsWith(self.location.origin);
+  var javascript = evt.request.url.startsWith('https://dani0001414.github.io/TheVRMobilMenetrend/javascript_code.js');
+  var google_fonts = evt.request.url.startsWith('https://fonts');
+  var imgur = evt.request.url.startsWith('https://i.imgur.com/9KP46NF.png');
   
   if (same_origin | google_fonts | imgur | javascript) {
   evt.respondWith(fromCache(evt.request));
