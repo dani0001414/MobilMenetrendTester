@@ -38,19 +38,20 @@ self.addEventListener('fetch', e => {
     fetch(e.request)
     .then(res => {    
       //Visszatérés a gyorsítótárazott értékkel, ha van. 
-      caches.match(e.request).then(res => {
-        if(res){
-          return res;
+      caches.match(e.request).then(responseCache => {
+        if(responseCache){
+          return responseCache;
         }
-        //másolat készítése a válaszokról.
-      const resClone = res.clone();
-      //Cash megnyitása
-      caches.open(cacheName).then(cache => {
-        //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(e.request, resClone);
-      });
-      return res;
-      });
+      }).catch(err => {
+        const resClone = res.clone();
+        //Cash megnyitása
+        caches.open(cacheName).then(cache => {
+          //Válaszok(response) hozzáadása a gyorsítótárhoz
+          cache.put(e.request, resClone);
+        });
+        return res;
+        });
+      })
       
       
     }).catch(err => caches.match(e.request).then(res => res))
