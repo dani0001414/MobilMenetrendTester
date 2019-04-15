@@ -5,15 +5,7 @@ const cacheAssets = [
 ]
 self.addEventListener('install', e => {
   console.log("Service Worker: Telepítve!");
-  e.waitUntil(
-    caches
-    .open(cacheName)
-    .then(cache => {
-      console.log("Service Worker: Gyorsítótárazás");
-      cache.addAll(cacheAssets);
-    })
-    .then(() => self.skipWaiting())
-  );
+ 
 });
 
 self.addEventListener('activate', e => {
@@ -37,6 +29,18 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   console.log('ServiceWorker: Fetchelés!');
   e.respondWith(
-    fetch(e.request).catch(()=> caches.match(e.request))
-  )
-})
+    fetch(e.request)
+    .then(res => {
+      //másolat készítése a válaszokról.
+      const resClone = res.clone();
+      //Cash megnyitása
+      caches
+      .open(cacheName)
+      .then(cache => {
+        //Válaszok(response) hozzáadása a gyorsítótárhoz
+        cache.put(e.request, resClone);
+      });
+      return res;
+    }).catch(err => caches.match(e.request).then(res => res))
+  );
+});
