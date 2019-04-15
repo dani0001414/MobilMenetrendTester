@@ -18,7 +18,7 @@ self.addEventListener('fetch', function(evt) {
     return;
   }
 
-  console.log('The service worker is serving the asset.');
+  //console.log('The service worker is serving the asset.');
   // You can use `respondWith()` to answer immediately, without waiting for the
   // network response to reach the service worker...
   evt.respondWith(fromCache(evt.request));
@@ -37,6 +37,7 @@ self.addEventListener('fetch', function(evt) {
 function fromCache(request) {
   return caches.open(CACHE).then(function (cache) {
     return cache.match(request).then(function (matching) {
+      console.log('return');
       return matching || Promise.reject('no-match');
     });
   });
