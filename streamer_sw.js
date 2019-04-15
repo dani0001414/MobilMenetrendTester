@@ -52,12 +52,7 @@ self.addEventListener('fetch', e => {
           });
           console.log('Visszatérés ' + res);
           return res;
-        }).catch(err => caches.match(e.request).then(res => {
-          console.log('Visszatérés error ' + res);
-          return res;
-        }))
+        })
     })
-
-
   )
 });
