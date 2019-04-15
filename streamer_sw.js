@@ -35,22 +35,24 @@ self.addEventListener('fetch', e => {
   }
 
   e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        //Visszatérés a gyorsítótárazott értékkel, ha van. 
-        caches.match(e.request).then(responseCache => {
-          if (responseCache) {
-            return responseCache;
-          }
-        }).catch(err => {
-          const resClone = res.clone();
-          //Cash megnyitása
-          caches.open(cacheName).then(cache => {
-            //Válaszok(response) hozzáadása a gyorsítótárhoz
-            cache.put(e.request, resClone);
-          });
-          return res;
+    caches.match(e.request).then(cachedRes =>{
+      if(cachedRes) {
+        return res;
+      }
+      
+      fetch(e.request)
+      .then(res => {      
+        //másolat készítése a válaszokról.
+        const resClone = res.clone();
+        //Cash megnyitása
+        caches.open(cacheName).then(cache => {
+          //Válaszok(response) hozzáadása a gyorsítótárhoz
+          cache.put(e.request, resClone);
         });
+        return res;
       }).catch(err => caches.match(e.request).then(res => res))
-  );
+    })
+
+    
+  )
 });
