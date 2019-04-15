@@ -39,13 +39,14 @@ self.addEventListener('fetch', e => {
       .then(res => {
         //Visszatérés a gyorsítótárazott értékkel, ha van. 
         caches.match(e.request).then(res => {
-          if (res == e.request) {
+          caches.open(cacheName).then(cache => {
+          if (res == cache) {
             return res;
           }
           //másolat készítése a válaszokról.
           const resClone = res.clone();
           //Cash megnyitása
-          caches.open(cacheName).then(cache => {
+          
             //Válaszok(response) hozzáadása a gyorsítótárhoz
             cache.put(e.request, resClone);
           });
