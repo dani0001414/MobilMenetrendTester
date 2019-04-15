@@ -1,7 +1,7 @@
 var CACHE = 'cache-and-update';
 
 // On install, cache some resources.
-self.addEventListener('install', function(evt) {
+self.addEventListener('install', function (evt) {
   console.log('The service worker is being installed.');
 
   // Ask the service worker to keep installing until the returning promise
@@ -10,7 +10,7 @@ self.addEventListener('install', function(evt) {
 
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
-self.addEventListener('fetch', function(evt) {
+self.addEventListener('fetch', function (evt) {
   var twitch_cover = evt.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
   //We dont want the post request and the twitch covers.
   if ((evt.request.method !== 'GET') | (twitch_cover == true)) {
@@ -39,7 +39,13 @@ function fromCache(request) {
     return cache.match(request).then(function (matching) {
       console.log('return');
       return matching || Promise.reject('no-match');
-    }).catch(err =>  fetch(request).then(res =>{
+    }).catch(err => fetch(request).then(res => {
+      const resClone = request.clone();
+      //Cash megnyitása
+        caches.open(CACHE).then(cache => {
+        //Válaszok(response) hozzáadása a gyorsítótárhoz
+        cache.put(request, resClone);
+      });
       return res;
     }));
   });
