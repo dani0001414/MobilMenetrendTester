@@ -33,17 +33,10 @@ self.addEventListener('fetch', e => {
     console.log('Service Worker: Post Request és Képeket nem töltünk le!');
     return;
   }
-
   e.respondWith(
-    fetch(e.request).then(res => {      
-      //másolat készítése a válaszokról.
-      const resClone = res.clone();
-      //Cash megnyitása
-      caches.open(cacheName).then(cache => {
-        //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(e.request, resClone);
-      });
-      return res;
-    }).catch(err => caches.match(e.request).then(res => res))
+    caches.match(e.request).then(cachedRes => {
+      return cachedRes;
+
+    }).catch(err => fetch(e.request).then(res => res))
   );
 });
