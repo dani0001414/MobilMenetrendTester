@@ -35,7 +35,10 @@ self.addEventListener('fetch', e => {
   }
   e.respondWith(
     caches.match(e.request).then(cachedRes => {
-      return cachedRes;
+      if(cachedRes){ 
+        return cachedRes;
+      }
+      fetch(e.request).then(res => res)
 
     }).catch(err => fetch(e.request).then(res => res))
   );
