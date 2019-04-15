@@ -37,7 +37,11 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(cachedRes =>{
       if("no-cache" !== e.request.cache) {
+        console.log('Visszatérés'+cachedRes+' '+e.request.cache);
+
         return cachedRes;
+        
+
       }
       
       fetch(e.request)
