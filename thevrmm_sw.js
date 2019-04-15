@@ -9,7 +9,7 @@ self.addEventListener('install', e => {
     .open(cacheName)
     .then(cache => {
       console.log("Service Worker: Gyorsítótárazás");
-      cache.addAll(chacheAssets);
+      cache.addAll(cacheAssets);
     })
     .then(() => self.skipWaiting())
   );
