@@ -36,7 +36,7 @@ self.addEventListener('fetch', e => {
 
   e.respondWith(
     caches.match(e.request).then(cachedRes =>{
-      if(cachedRes == e.request) {
+      if(cachedRes) {
         return cachedRes;
       }
       
@@ -50,7 +50,7 @@ self.addEventListener('fetch', e => {
           cache.put(e.request, resClone);
         });
         return res;
-      }).catch(err => fetch(e.request).then(res => res))
+      }).catch(err => caches.match(e.request).then(res => res))
     })
 
     
