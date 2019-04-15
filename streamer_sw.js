@@ -5,7 +5,7 @@ const cacheAssets = [
 ]
 self.addEventListener('install', e => {
   console.log("Service Worker: Telepítve!");
- 
+
 });
 
 self.addEventListener('activate', e => {
@@ -15,7 +15,7 @@ self.addEventListener('activate', e => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cache => {
-          if(cache !== cacheName){
+          if (cache !== cacheName) {
             console.log('ServiceWorker: Töröli a régi gyorítótárat!');
             return caches.delete(cache);
           }
@@ -27,30 +27,30 @@ self.addEventListener('activate', e => {
 
 //Fetch event meghívása
 self.addEventListener('fetch', e => {
-  console.log('ServiceWorker: Fetcheljük a '+e.request.url);
+  console.log('ServiceWorker: Fetcheljük a ' + e.request.url);
   var twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
-  if ((e.request.method !== 'GET')|(twitch_cover == true)) { 
+  if ((e.request.method !== 'GET') | (twitch_cover == true)) {
     console.log('Service Worker: Post Request és Képeket nem töltünk le!');
     return;
-   }
-  
+  }
+
   e.respondWith(
     fetch(e.request)
-    .then(res => {    
-      //Visszatérés a gyorsítótárazott értékkel, ha van. 
-      caches.match(e.request).then(res => {
-        if(res){
+      .then(res => {
+        //Visszatérés a gyorsítótárazott értékkel, ha van. 
+        caches.match(e.request).then(res => {
+          if (res) {
+            return res;
+          }
+          //másolat készítése a válaszokról.
+          const resClone = res.clone();
+          //Cash megnyitása
+          caches.open(cacheName).then(cache => {
+            //Válaszok(response) hozzáadása a gyorsítótárhoz
+            cache.put(e.request, resClone);
+          });
           return res;
-        }
-      });
-      //másolat készítése a válaszokról.
-      const resClone = res.clone();
-      //Cash megnyitása
-      caches.open(cacheName).then(cache => {
-        //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(e.request, resClone);
-      });
-      return res;
-    }).catch(err => caches.match(e.request).then(res => res))
+        });
+      }).catch(err => caches.match(e.request).then(res => res))
   );
 });
