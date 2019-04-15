@@ -1,0 +1,16 @@
+{
+    "name": "DanX27 MobilMenetrend(bonyolutabbsw)",  
+    "short_name": "DanX27 MobilMenetrend(bonyolutabbsw)",
+    "display": "standalone",
+    "orientation": "natural",
+    "start_url": ".",
+    "background_color": "#f7f7f7",
+    "theme_color": "#6441A4",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ]
+}
