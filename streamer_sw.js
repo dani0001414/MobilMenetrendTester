@@ -28,7 +28,7 @@ self.addEventListener('activate', e => {
 //Fetch event meghívása
 self.addEventListener('fetch', e => {
   console.log('ServiceWorker: Fetchelés!');
-  if (request.method !== 'GET') { return; }
+  if (e.request.method !== 'GET') { return; }
   e.respondWith(
     fetch(e.request)
     .then(res => {
