@@ -34,9 +34,7 @@ self.addEventListener('fetch', e => {
       //másolat készítése a válaszokról.
       const resClone = res.clone();
       //Cash megnyitása
-      caches
-      .open(cacheName)
-      .then(cache => {
+      caches.open(cacheName).then(cache => {
         //Válaszok(response) hozzáadása a gyorsítótárhoz
         cache.put(e.request, resClone);
       });
