@@ -31,3 +31,11 @@ self.addEventListener('activate', e => {
     })
   )
 });
+
+//Fetch event meghívása
+self.addEventListener('fetch', e => {
+  console.log('ServiceWorker: Fetchelés!');
+  e.respondWith(
+    fetch(e.request).catch(()=> caches.match(e.request))
+  )
+})
