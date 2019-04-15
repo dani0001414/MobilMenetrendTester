@@ -37,7 +37,7 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(cachedRes =>{
       if(cachedRes !== undefined) {
-        console.log('Visszatérés '+cachedRes+' '+e.request.cache);
+        console.log('Visszatérés'+cachedRes+' '+e.request.cache);
 
         return cachedRes;
         
@@ -54,19 +54,9 @@ self.addEventListener('fetch', e => {
           cache.put(e.request, resClone);
         });
         return res;
-
       }).catch(err => caches.match(e.request).then(res => res))
     }).catch(err => {
-      fetch(e.request)
-      .then(res => {      
-        //másolat készítése a válaszokról.
-        const resClone = res.clone();
-        //Cash megnyitása
-        caches.open(cacheName).then(cache => {
-          //Válaszok(response) hozzáadása a gyorsítótárhoz
-          cache.put(e.request, resClone);
-        });
-        return res;
+      
     })
 
     
