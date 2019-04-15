@@ -11,9 +11,9 @@ self.addEventListener('install', function(evt) {
 // On fetch, use cache but update the entry with the latest contents
 // from the server.
 self.addEventListener('fetch', function(evt) {
-  var twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
+  var twitch_cover = evt.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
   //We dont want the post request and the twitch covers.
-  if ((e.request.method !== 'GET') | (twitch_cover == true)) {
+  if ((evt.request.method !== 'GET') | (twitch_cover == true)) {
     console.log('Service Worker: Post Request és Képeket nem töltünk le!');
     return;
   }
