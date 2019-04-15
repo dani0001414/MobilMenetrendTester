@@ -1,7 +1,19 @@
-const cacheName = 'v1';
+const cacheName = 'v2';
 
-self.addEventListener('install', e => {
-  console.log("Service Worker: Telepítve!");
+self.addEventListener("install", function (event) {
+  console.log('WORKER: install event in progress.');
+  event.waitUntil(
+
+    caches.open(cacheName + 'fundamentals').then(function (cache) {
+
+      return cache.addAll([
+        'icon.png', //streamerdata.js-ben megadott offlinePic. Vagyis az Offline-nak szánt kép elérési útját illeszd be ide. Mást ne módosíts!
+      ]);
+    })
+      .then(function () {
+        console.log('WORKER: install completed');
+      })
+  );
 });
 
 self.addEventListener('activate', e => {
@@ -11,7 +23,7 @@ self.addEventListener('activate', e => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cache => {
-          if(cache !== cacheName){
+          if (cache !== cacheName) {
             console.log('ServiceWorker: Töröli a régi gyorítótárat!');
             return caches.delete(cache);
           }
@@ -37,7 +49,7 @@ self.addEventListener('fetch', event => {
          to the fetch request.
       */
       .match(event.request)
-      .then(function(cached) {
+      .then(function (cached) {
         /* Even if the response is in our cache, we go to the network as well.
            This pattern is known for producing "eventually fresh" responses,
            where we return cached responses immediately, and meanwhile pull
@@ -75,7 +87,7 @@ self.addEventListener('fetch', event => {
               */
               cache.put(event.request, cacheCopy);
             })
-            .then(function() {
+            .then(function () {
               console.log('WORKER: fetch response stored in cache.', event.request.url);
             });
 
@@ -89,7 +101,7 @@ self.addEventListener('fetch', event => {
            you probably want to display a "Service Unavailable" view or a generic
            error response.
         */
-        function unableToResolve () {
+        function unableToResolve() {
           /* There's a couple of things we can do here.
              - Test the Accept header and then return one of the `offlineFundamentals`
                e.g: `return caches.match('/some/cached/image.png')`
@@ -115,3 +127,6 @@ self.addEventListener('fetch', event => {
       })
   );
 })
+
+//Ez a ServiceWorker a https://css-tricks.com/serviceworker-for-offline/ oldalról származik.
+//This ServiceWorker based on an article from here: https://css-tricks.com/serviceworker-for-offline/ 
