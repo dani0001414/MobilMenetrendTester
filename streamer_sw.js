@@ -29,7 +29,10 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   console.log('ServiceWorker: Fetchelés!');
   var twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
-  if ((e.request.method !== 'GET')|(twitch_cover = twitch_cover)) { return; }
+  if ((e.request.method !== 'GET')|(twitch_cover = twitch_cover)) { 
+    console.log('Service Worker: Post Request és Képeket nem töltünk le!');
+    return;
+   }
   e.respondWith(
     fetch(e.request)
     .then(res => {
