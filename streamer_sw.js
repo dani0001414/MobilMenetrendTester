@@ -1,62 +1,48 @@
-var CACHE = 'cache-and-update';
+const cacheName = 'v1';
+const cacheAssets = [
+  '/',
+  'index.html'
+]
+self.addEventListener('install', e => {
+  console.log("Service Worker: Telepítve!");
 
-// On install, cache some resources.
-self.addEventListener('install', function (evt) {
-  console.log('The service worker is being installed.');
-
-  // Ask the service worker to keep installing until the returning promise
-  // resolves.
 });
 
-// On fetch, use cache but update the entry with the latest contents
-// from the server.
-self.addEventListener('fetch', function (evt) {
-  var twitch_cover = evt.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
-  //We dont want the post request and the twitch covers.
-  if ((evt.request.method !== 'GET') | (twitch_cover == true)) {
+self.addEventListener('activate', e => {
+  console.log('Service Worker: Aktiválva!');
+  //Töröljük a nemkívánt gyorsítótárakat.
+  e.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== cacheName) {
+            console.log('ServiceWorker: Töröli a régi gyorítótárat!');
+            return caches.delete(cache);
+          }
+        })
+      )
+    })
+  )
+});
+
+//Fetch event meghívása
+self.addEventListener('fetch', e => {
+  console.log('ServiceWorker: Fetcheljük a ' + e.request.url);
+  var twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
+  if ((e.request.method !== 'GET') | (twitch_cover == true)) {
     console.log('Service Worker: Post Request és Képeket nem töltünk le!');
     return;
   }
-
-  //console.log('The service worker is serving the asset.');
-  // You can use `respondWith()` to answer immediately, without waiting for the
-  // network response to reach the service worker...
-  evt.respondWith(fromCache(evt.request));
-  // ...and `waitUntil()` to prevent the worker from being killed until the
-  // cache is updated.
-  evt.waitUntil(update(evt.request));
-});
-
-// Open a cache and use `addAll()` with an array of assets to add all of them
-// to the cache. Return a promise resolving when all the assets are added.
-
-
-// Open the cache where the assets were stored and search for the requested
-// resource. Notice that in case of no matching, the promise still resolves
-// but it does with `undefined` as value.
-function fromCache(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      console.log('return');
-      return matching || Promise.reject('no-match');
-    }).catch(err => fetch(request).then(res => {
+ e.respondWith(
+    fetch(e.request).then(res => {      
+      //másolat készítése a válaszokról.
       const resClone = res.clone();
       //Cash megnyitása
-        caches.open(CACHE).then(cache => {
+      caches.open(cacheName).then(cache => {
         //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(res, resClone);
+        cache.put(e.request, resClone);
       });
       return res;
-    }));
-  });
-}
-
-// Update consists in opening the cache, performing a network request and
-// storing the new response data.
-function update(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response);
-    });
-  });
-}
+    }).catch(err => caches.match(e.request).then(res => res))
+  );
+});
