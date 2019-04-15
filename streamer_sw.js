@@ -17,4 +17,17 @@ self.addEventListener('install', e => {
 
 self.addEventListener('activate', e => {
   console.log('Service Worker: Aktiválva!');
+  //Töröljük a nemkívánt gyorsítótárakat.
+  e.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cache => {
+          if(cache !== cacheName){
+            console.log('ServiceWorker: Töröli a régi gyorítótárat!');
+            return caches.delete(cache);
+          }
+        })
+      )
+    })
+  )
 });
