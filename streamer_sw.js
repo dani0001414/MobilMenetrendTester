@@ -5,7 +5,15 @@ const cacheAssets = [
 ]
 self.addEventListener('install', e => {
   console.log("Service Worker: Telepítve!");
-
+  e.waitUntil(
+    caches
+    .open(cacheName)
+    .then(cache => {
+      console.log("Service Worker: Gyorsítótárazás");
+      cache.addAll(cacheAssets);
+    })
+    .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', e => {
@@ -15,7 +23,7 @@ self.addEventListener('activate', e => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cache => {
-          if (cache !== cacheName) {
+          if(cache !== cacheName){
             console.log('ServiceWorker: Töröli a régi gyorítótárat!');
             return caches.delete(cache);
           }
@@ -27,22 +35,13 @@ self.addEventListener('activate', e => {
 
 //Fetch event meghívása
 self.addEventListener('fetch', e => {
-  console.log('ServiceWorker: Fetcheljük a ' + e.request.url);
+  console.log('ServiceWorker: Fetchelés!');
   var twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
   if ((e.request.method !== 'GET') | (twitch_cover == true)) {
     console.log('Service Worker: Post Request és Képeket nem töltünk le!');
     return;
   }
- e.respondWith(
-    fetch(e.request).then(res => {      
-      //másolat készítése a válaszokról.
-      const resClone = res.clone();
-      //Cash megnyitása
-      caches.open(cacheName).then(cache => {
-        //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(e.request, resClone);
-      });
-      return res;
-    }).catch(err => caches.match(e.request).then(res => res))
-  );
-});
+  e.respondWith(
+    fetch(e.request).catch(()=> caches.match(e.request))
+  )
+})
