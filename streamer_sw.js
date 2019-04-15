@@ -28,7 +28,8 @@ self.addEventListener('activate', e => {
 //Fetch event meghívása
 self.addEventListener('fetch', e => {
   console.log('ServiceWorker: Fetchelés!');
-  if (e.request.method !== 'GET') { return; }
+  const twitch_cover = e.request.url.startsWith('https://static-cdn.jtvnw.net/twitch-event');
+  if ((e.request.method !== 'GET')&(twitch_cover = twitch_cover)) { return; }
   e.respondWith(
     fetch(e.request)
     .then(res => {
