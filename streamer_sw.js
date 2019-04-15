@@ -37,11 +37,8 @@ self.addEventListener('fetch', e => {
   e.respondWith(
     caches.match(e.request).then(cachedRes => {
       if (cachedRes !== undefined) {
-        console.log('Visszatérés' + cachedRes + ' ' + e.request.cache);
-
+        console.log('Visszatérés ' + cachedRes + ' ' + e.request.cache);
         return cachedRes;
-
-
       }
 
       fetch(e.request)
@@ -53,10 +50,12 @@ self.addEventListener('fetch', e => {
             //Válaszok(response) hozzáadása a gyorsítótárhoz
             cache.put(e.request, resClone);
           });
+          console.log('Visszatérés ' + res);
           return res;
-        }).catch(err => caches.match(e.request).then(res => res))
-    }).catch(err => {
-        
+        }).catch(err => caches.match(e.request).then(res => {
+          console.log('Visszatérés error ' + res);
+          return res;
+        }))
     })
 
 
