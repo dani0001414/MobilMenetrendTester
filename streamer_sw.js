@@ -39,7 +39,7 @@ self.addEventListener('fetch', e => {
       .then(res => {
         //Visszatérés a gyorsítótárazott értékkel, ha van. 
         caches.match(e.request).then(res => {
-          if (res) {
+          if (res == e.request) {
             return res;
           }
           //másolat készítése a válaszokról.
