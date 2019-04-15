@@ -96,7 +96,7 @@ self.addEventListener('fetch', event => {
             cached_time = timestamp(time);
             time = aktualisido() - cached_time;
             console.log('ido:', time);
-            if (259200 < time) {
+            if (200 < time) {
               trimCache(PRECACHE, 0);
               trimCache(RUNTIME, 0);
             }
