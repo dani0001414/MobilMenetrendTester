@@ -40,11 +40,11 @@ function fromCache(request) {
       console.log('return');
       return matching || Promise.reject('no-match');
     }).catch(err => fetch(request).then(res => {
-      const resClone = request.clone();
+      const resClone = res.clone();
       //Cash megnyitása
         caches.open(CACHE).then(cache => {
         //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(request, resClone);
+        cache.put(res, resClone);
       });
       return res;
     }));
