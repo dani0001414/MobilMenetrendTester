@@ -51,20 +51,10 @@ self.addEventListener('fetch', e => {
         });
         return res;
       }).catch(err => caches.match(e.request).then(res => res))
+    }).catch(err =>{
+      console.log('Valami Hiba történt!');
     })
 
     
-  ).catch(err =>{
-    fetch(e.request)
-    .then(res => {      
-      //másolat készítése a válaszokról.
-      const resClone = res.clone();
-      //Cash megnyitása
-      caches.open(cacheName).then(cache => {
-        //Válaszok(response) hozzáadása a gyorsítótárhoz
-        cache.put(e.request, resClone);
-      });
-      return res;
-    }).catch(err => caches.match(e.request).then(res => res))
-  })
+  )
 });
