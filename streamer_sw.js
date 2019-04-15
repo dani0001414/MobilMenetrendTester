@@ -39,7 +39,7 @@ function fromCache(request) {
     return cache.match(request).then(function (matching) {
       console.log('return');
       return matching || Promise.reject('no-match');
-    }).catch(err =>  fetch(evt.request).then(res =>{
+    }).catch(err =>  fetch(request).then(res =>{
       return res;
     }));
   });
