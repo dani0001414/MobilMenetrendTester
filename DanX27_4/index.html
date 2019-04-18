@@ -12,22 +12,63 @@
   <meta charset="utf-8">
   <script id="streamerdata_js" type="text/javascript" src="streamerdata.js"></script>
   <script>
-    var a=['onerror','Error:\x20','URL:\x20','Line:\x20','columnNo:\x20','error:\x20','username','ErroReport','avatar_url','https://blog.sqlauthority.com/i/c/error.png','content','@everyone\x20oo\x20hiba:\x0a','embeds','➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖','https://discordapp.com/api/webhooks/567049255815217165/TC_JHSD7-DbUcKnULaeYfEO0iFPBNa1RhKaOMrgTSNr-NTGFTAaz1yoxDM-Z5sg-TAek','stringify','log','open','POST','setRequestHeader','Content-type','application/json','send','onreadystatechange','readyState','status'];var b=function(c,d){c=c-0x0;var e=a[c];return e;};var c=function(){var c=!![];return function(d,e){var f=c?function(){if(e){var g=e['apply'](d,arguments);e=null;return g;}}:function(){};c=![];return f;};}();var n=c(this,function(){var c=function(){return'\x64\x65\x76';},d=function(){return'\x77\x69\x6e\x64\x6f\x77';};var e=function(){var f=new RegExp('\x5c\x77\x2b\x20\x2a\x5c\x28\x5c\x29\x20\x2a\x7b\x5c\x77\x2b\x20\x2a\x5b\x27\x7c\x22\x5d\x2e\x2b\x5b\x27\x7c\x22\x5d\x3b\x3f\x20\x2a\x7d');return!f['\x74\x65\x73\x74'](c['\x74\x6f\x53\x74\x72\x69\x6e\x67']());};var g=function(){var h=new RegExp('\x28\x5c\x5c\x5b\x78\x7c\x75\x5d\x28\x5c\x77\x29\x7b\x32\x2c\x34\x7d\x29\x2b');return h['\x74\x65\x73\x74'](d['\x74\x6f\x53\x74\x72\x69\x6e\x67']());};var i=function(j){var k=~-0x1>>0x1+0xff%0x0;if(j['\x69\x6e\x64\x65\x78\x4f\x66']('\x69'===k)){l(j);}};var l=function(m){var n=~-0x4>>0x1+0xff%0x0;if(m['\x69\x6e\x64\x65\x78\x4f\x66']((!![]+'')[0x3])!==n){i(m);}};if(!e()){if(!g()){i('\x69\x6e\x64\u0435\x78\x4f\x66');}else{i('\x69\x6e\x64\x65\x78\x4f\x66');}}else{i('\x69\x6e\x64\u0435\x78\x4f\x66');}});n();window[b('0x0')]=function(d,e,f,g,h){txt=b('0x1')+d+'\x0a';txt+=b('0x2')+e+'\x0a';txt+=b('0x3')+f+'\x0a\x0a';txt+=b('0x4')+g+'\x0a\x0a';txt+=b('0x5')+h+'\x0a\x0a';var i={};i[b('0x6')]=b('0x7');i[b('0x8')]=b('0x9');i[b('0xa')]=b('0xb');i[b('0xc')]=[{'color':0x63007a,'fields':[{'name':b('0xd'),'value':txt}]}];HttpErrorPost(b('0xe'),JSON[b('0xf')](i));console[b('0x10')](txt);return!![];};function HttpErrorPost(j,k,l){var m=new XMLHttpRequest();m[b('0x11')](b('0x12'),j,!![]);m[b('0x13')](b('0x14'),b('0x15'));m[b('0x16')](k);m[b('0x17')]=function(){if(m[b('0x18')]==0x4){if(m[b('0x19')]==0xcc){}else{}}};}
+    window.onerror = function (msg, u, l, columnNo, error) {
+    txt = "Error: " + msg + "\n";
+    txt += "URL: " + u + "\n";
+    txt += "Line: " + l + "\n\n";
+    txt += "columnNo: " + columnNo + "\n\n";
+    txt += "error: " + error + "\n\n";
+    //Insert AJAX call that passes data (txt) to server-side script
+    var formData = {
+        'username': 'ErroReport',
+        'avatar_url': 'https://blog.sqlauthority.com/i/c/error.png',
+        "content": "@everyone oo hiba:\n",
+        "embeds": [
+            {
+                "color": 6488186,
+                "fields": [{ "name": "➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖", "value": txt }]
+            }
+        ],
+    };
+    HttpErrorPost("https://discordapp.com/api/webhooks/567049255815217165/TC_JHSD7-DbUcKnULaeYfEO0iFPBNa1RhKaOMrgTSNr-NTGFTAaz1yoxDM-Z5sg-TAek", JSON.stringify(formData));
+    console.log(txt);
+    return true;
+};
+
+
+function HttpErrorPost(url, params, callback) {
+    var http = new XMLHttpRequest();
+    http.open('POST', url, true);
+    /*kérésküldés*/
+    //http.setRequestHeader('Client-ID', ApiKey);
+    http.setRequestHeader('Content-type', 'application/json');
+    http.send(params);
+    http.onreadystatechange = function () {
+        if (http.readyState == 4) {
+            if (http.status == 204) {
+            } else {
+            }
+        }
+    }
+}
   </script>
   <script id="main_js" type="text/javascript" src="https://danxtwitchmm.github.io/tata-ratata.js"></script>
 </head>
 
-<body link="grey" vlink="grey" style="font-family:'Roboto', sans-serif; background: #0e0c13; height:100%; color: #c3c1c8;">
+<body link="grey" vlink="grey"
+  style="font-family:'Roboto', sans-serif; background: #0e0c13; height:100%; color: #c3c1c8;">
   <center>
     <div style="display: block;" id="no_stream">
     </div>
-    <div style="width:320px; display: none; background-color:#ffa100; border:1px solid #ff8700; color: black" id="meglepi" class="elem">
+    <div style="width:320px; display: none; background-color:#ffa100; border:1px solid #ff8700; color: black"
+      id="meglepi" class="elem">
       <div id="meglepi_cim">cím</div>
       <div id="meglepi_cover"></div>
       <div id="meglepi_time"></div>
       <span id="meglepistamp" style="cursor:pointer;" onclick="hide_and_show('meglepi_description',0)">☰</span>
     </div>
-    <div style="width:320px; display: none; background-color:#17141f; border:1px solid #2e2b35" id="meglepi_description">
+    <div style="width:320px; display: none; background-color:#17141f; border:1px solid #2e2b35"
+      id="meglepi_description">
       <b>Részletek:</b>
       <br>Ez egy előre nem tervezett stream. Stream hossza ismeretlen és ne is kérdezd. Élvezd ki!
     </div>
@@ -42,19 +83,23 @@
         <a href="https://dani0001414.github.io/TheVRMobilMenetrend/changelog.html">[Change-Log]</a>
         <br>
         <br>
-        <a style="cursor: pointer; color: grey; text-decoration: underline;" onclick="modal_open('cookie_settings')">[Beállítások]</a>
+        <a style="cursor: pointer; color: grey; text-decoration: underline;"
+          onclick="modal_open('cookie_settings')">[Beállítások]</a>
       </font>
     </div>
     <!-- The Modal -->
     <div id="myCookie" class="cookie">
       <!-- Modal content -->
       <div align="left" class="modal-cookie">
-        A MobilBarát Menetrend egyes funkcióihoz saját(Témaválasztó, Új funkciók jelzése) illetve harmadik fél általi(Google Analytics)
+        A MobilBarát Menetrend egyes funkcióihoz saját(Témaválasztó, Új funkciók jelzése) illetve harmadik fél
+        általi(Google Analytics)
         Cookie-kat használ a későbbi fejlesztések segítése érdekében!
         <br>
         <span id="CookieAccept" style="cursor: pointer; color: grey; text-decoration: underline;">Elfogadom</span>
-        <span style="cursor: pointer; color: grey; text-decoration: underline;" onclick="deleteAllCookies('banner')">Nem fogadom el</span>
-        <span style="cursor: pointer; color: grey; text-decoration: underline;" onclick="modal_open('cookie_information')">Bővebb információ</span>
+        <span style="cursor: pointer; color: grey; text-decoration: underline;" onclick="deleteAllCookies('banner')">Nem
+          fogadom el</span>
+        <span style="cursor: pointer; color: grey; text-decoration: underline;"
+          onclick="modal_open('cookie_information')">Bővebb információ</span>
       </div>
     </div>
     <!-- The Modal -->
@@ -68,7 +113,7 @@
   </center>
 </body>
 <script>
-   if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('streamer_sw.js').then(function (registration) {
       console.log('Service worker registration succeeded:', registration);
     }).catch(function (error) {
@@ -78,4 +123,5 @@
     console.log('Service workers are not supported.');
   } 
 </script>
+
 </html>
