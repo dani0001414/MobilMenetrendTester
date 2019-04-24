@@ -433,7 +433,7 @@ function Light(length) {
             document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #efefef";
             document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
             document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #efefef";
-            document.getElementById(u + "arrow").style.filter = "invert(100%)";
+            document.getElementById(i + "arrow").style.filter = "invert(100%)";
         }
         catch (err) {
 
@@ -477,7 +477,7 @@ function Dark(length) {
             document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #060606";
             document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #060606";
             document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #060606";
-            document.getElementById(u + "arrow").style.filter = "invert(0%)";
+            document.getElementById(i + "arrow").style.filter = "invert(0%)";
 
         } catch (err) {
 
