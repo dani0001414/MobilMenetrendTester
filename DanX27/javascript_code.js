@@ -453,6 +453,8 @@ function Light(length) {
 
     }
     document.getElementById("arrow").style.fill= "black";
+    document.getElementById("arrow").style.fill= "black";
+    
     document.body.style.Color = "black";
     document.body.style.backgroundColor = "#faf9fa";
     document.getElementsByClassName("modal-content")[0].style.color = "black";
