@@ -14,8 +14,8 @@ var icalCalendarLink = [];
 var outlook_calendar_link = [];
 var yahooCalendarLink = [];
 var cookieReadFlag = 0, errorFlag = 0, scriptDoneFlag = 0;
-var svgArrowDown = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"translate(13.096211,-15.902542)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
-var svgArrowUp = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"matrix(1,0,0,-1,13.096211,562.73943)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
+var svgArrowDown = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"translate(13.096211,-15.902542)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
+var svgArrowUp = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"matrix(1,0,0,-1,13.096211,562.73943)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
 
 window.onerror = function (msg, u, l, columnNo) {
     if (cookieReadFlag == 0) { DefaultCookieRead(); }
@@ -433,7 +433,7 @@ function Light(length) {
             document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #efefef";
             document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
             document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #efefef";
-            document.getElementById(i + "arrow").style.filter = "invert(100%)";
+            document.getElementById(i + "_arrow").style.filter = "invert(100%)";
         }
         catch (err) {
 
@@ -477,7 +477,7 @@ function Dark(length) {
             document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #060606";
             document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #060606";
             document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #060606";
-            document.getElementById(i + "arrow").style.filter = "invert(0%)";
+            document.getElementById(i + "_arrow").style.filter = "invert(0%)";
 
         } catch (err) {
 
