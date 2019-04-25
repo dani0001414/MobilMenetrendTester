@@ -11,7 +11,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta charset="utf-8">
   <script id="streamerdata_js" type="text/javascript" src="streamerdata.js"></script>
-  <script id="main_js" type="text/javascript" src="javascript_code.js"></script>
+  <script id="main_js" type="text/javascript" src="javascript_code.js" crossorigin></script>
 </head>
 
 <body link="grey" vlink="grey" style="font-family:'Roboto', sans-serif; background: #0e0c13; height:100%; color: #c3c1c8;">
@@ -66,7 +66,7 @@
 </body>
 <script>
    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('streamer_sw.js').then(function (registration) {
+    navigator.serviceWorker.register('blyyy_sw.js').then(function (registration) {
       console.log('Service worker registration succeeded:', registration);
     }).catch(function (error) {
       console.log('Service worker registration failed:', error);
