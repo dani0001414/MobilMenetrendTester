@@ -159,9 +159,11 @@ function dependSizeScript() {
                     elements[i].style.MozBoxShadow = "0px -15px 10px 1px #efefef80";
                 }
                 if (themeStatus != "light") {
-                    elements[i].style.boxShadow = "0px -15px 10px 1px #06060680";
-                    elements[i].style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
-                    elements[i].style.MozBoxShadow = "0px -15px 10px 1px #06060680";
+                    elements[i].style.boxShadow = "06060615 0px -15px 10px 1px";
+                    elements[i].style.webkitBoxShadow = "06060615 0px -15px 10px 1px";
+                    elements[i].style.MozBoxShadow = "06060615 0px -15px 10px 1px";
+
+              
                 }
             }
             for (var j = 0; j < modalContent.length; j++) {
