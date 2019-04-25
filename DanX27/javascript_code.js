@@ -440,7 +440,7 @@ function Light(length) {
             try {
                 dayContainer.style.color = "#969696";
                 dayContainer.style.textShadow = "2px 2px #cecece";
-                dayContainer.style.borderTop = "2px solid #e5e3e8";
+                dayContainer.style.borderTop = "1px solid #e5e3e8";
                 dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#e5e3e8 100%";
                 dayContainer.style.boxShadow = "0px -15px 10px 1px #efefef";
                 dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
@@ -470,7 +470,7 @@ function Light(length) {
         }
     }
 
-    document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL.png)";
+    document.body.style.backgroundImage = "linear-gradient(to right, #ffffff99, #23272A00, #ffffff99), url(patternL.png)";
     document.body.style.backgroundRepeat = "repeat";
 
     document.body.style.Color = "black";
@@ -497,8 +497,8 @@ function Dark(length) {
             try {
                 dayContainer.style.color = "lightgrey";
                 dayContainer.style.textShadow = "2px 2px #484848";
-                dayContainer.style.borderTop = "2px solid #2e2b35";
-                dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#2e2b35 100%";
+                dayContainer.style.borderTop = "1px solid #2e2b35";
+                dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#17141f 100%";
                 dayContainer.style.boxShadow = "0px -15px 10px 1px #060606";
                 dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #060606";
                 dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #060606";
