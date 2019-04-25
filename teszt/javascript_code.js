@@ -469,6 +469,7 @@ function Light(length) {
                 eventConteiner.style.color = "black";
             }
         }
+        dependSizeScript();
     }
 
     document.body.style.backgroundImage = "linear-gradient(to right, #ffffff99, #23272A00, #ffffff99), url(patternL.png)";
@@ -542,6 +543,7 @@ function Dark(length) {
         meta.name = "theme-color";
         meta.content = "#0e0c13";
         document.getElementsByTagName('head')[0].appendChild(meta);
+        dependSizeScript();
     }
 }
 
@@ -1264,7 +1266,7 @@ function HtmlStart() {
             createcookie('cachedStreamEnd', encodeURIComponent(JSON.stringify(cachedStreamEnd)), 1);
         }
     }
-    dependSizeScript();
+    
 
     if (errorFlag == 1) {
         ScriptDone();
