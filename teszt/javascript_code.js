@@ -1341,8 +1341,12 @@ function OfflineSite() {
         }
     }
     //Létrehozott DIV-ek színének átváltása.
+  //Ha a téma világos akkor a létrehozott DIV-eket átállítjuk
+
     if (themeStatus == "light") {
         Light(offlineLength);
+    } else {
+        Dark(offlineLength)
     }
     divcreator("footer", "body");
     MoveParent("footer_created");
