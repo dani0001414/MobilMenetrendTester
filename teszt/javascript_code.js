@@ -436,13 +436,13 @@ function Light(length) {
 
             document.getElementById(i + "_arrow").style.filter = "invert(100%)";
             try {
-                dayContainer.style.color = "#969696";
+                dayContainer.style.color = "white";
                 dayContainer.style.textShadow = "2px 2px #cecece";
                 dayContainer.style.borderTop = "1px solid #e5e3e8";
                 dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#e5e3e8 100%";
-                dayContainer.style.boxShadow = "0px -15px 10px 1px #efefef80";
-                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #efefef80";
-                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #efefef80";
+                dayContainer.style.boxShadow = "#06060615 0px -15px 10px 1px";
+                dayContainer.style.webkitBoxShadow = "#06060615 0px -15px 10px 1px";
+                dayContainer.style.MozBoxShadow = "#06060615 0px -15px 10px 1px";
 
             }
             catch (err) {
