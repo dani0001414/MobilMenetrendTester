@@ -203,7 +203,7 @@ function divcreator(idname, where, classname) {
         }
         if (classname == "descriptioncontainer") {
             document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;');
-            
+
         }
         if (iDiv.id == "footer_created") {
             document.getElementById(iDiv.id).style.margin = "15px 0px 0px 0px";
@@ -469,21 +469,23 @@ function Light(length) {
                 eventConteiner.style.color = "black";
             }
         }
+        
+
+
+        document.body.style.backgroundImage = "linear-gradient(to right, #ffffff99, #23272A00, #ffffff99), url(patternL.png)";
+        document.body.style.backgroundRepeat = "repeat";
+
+        document.body.style.Color = "black";
+        document.body.style.backgroundColor = "#faf9fa";
+        document.getElementsByClassName("modal-content")[0].style.color = "black";
+        document.getElementsByClassName("modal-content")[0].style.backgroundColor = "white";
+        var meta = document.createElement("meta");
+        meta.name = "theme-color";
+        meta.content = "#faf9fa";
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
         dependSizeScript();
     }
-
-    document.body.style.backgroundImage = "linear-gradient(to right, #ffffff99, #23272A00, #ffffff99), url(patternL.png)";
-    document.body.style.backgroundRepeat = "repeat";
-
-    document.body.style.Color = "black";
-    document.body.style.backgroundColor = "#faf9fa";
-    document.getElementsByClassName("modal-content")[0].style.color = "black";
-    document.getElementsByClassName("modal-content")[0].style.backgroundColor = "white";
-    var meta = document.createElement("meta");
-    meta.name = "theme-color";
-    meta.content = "#faf9fa";
-    document.getElementsByTagName('head')[0].appendChild(meta);
-
 }
 
 function Dark(length) {
@@ -520,15 +522,15 @@ function Dark(length) {
             descriptionContainer.style.backgroundColor = "#17141f";
             descriptionContainer.style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
             descriptionContainer.style.color = "#c3c1c8";
-           
+
 
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
-               
+
             } else {
                 eventConteiner.style.backgroundColor = "#17141f";
                 eventConteiner.style.border = "1px solid #2e2b35";
                 eventConteiner.style.color = "#c3c1c8";
-                
+
             }
         }
         document.body.style.Color = "#c3c1c8";
@@ -1266,7 +1268,7 @@ function HtmlStart() {
             createcookie('cachedStreamEnd', encodeURIComponent(JSON.stringify(cachedStreamEnd)), 1);
         }
     }
-    
+
 
     if (errorFlag == 1) {
         ScriptDone();
@@ -1343,7 +1345,7 @@ function OfflineSite() {
         }
     }
     //Létrehozott DIV-ek színének átváltása.
-  //Ha a téma világos akkor a létrehozott DIV-eket átállítjuk
+    //Ha a téma világos akkor a létrehozott DIV-eket átállítjuk
 
     if (themeStatus == "light") {
         Light(offlineLength);
