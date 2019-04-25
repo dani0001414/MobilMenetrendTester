@@ -9,7 +9,7 @@ self.addEventListener("install", function (event) {
     caches.open(cacheName + 'fundamentals').then(function (cache) {
 //Itt van az a rész amelyet be kell állítanod:
       return cache.addAll([
-        'blyyy_logo.png', //streamerdata.js-ben megadott offlinePic. Vagyis az Offline-nak szánt kép elérési útját illeszd be ide. Mást ne módosíts!
+        'icon.png', //streamerdata.js-ben megadott offlinePic. Vagyis az Offline-nak szánt kép elérési útját illeszd be ide. Mást ne módosíts!
       ]);
     })
       .then(function () {
