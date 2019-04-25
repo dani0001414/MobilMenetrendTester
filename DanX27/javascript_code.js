@@ -16,7 +16,7 @@ var yahooCalendarLink = [];
 var cookieReadFlag = 0, errorFlag = 0, scriptDoneFlag = 0, readyStyleFlag = 1;
 var svgArrowDown = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"translate(13.096211,-15.902542)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
 var svgArrowUp = "<svg width=\"20px\" viewBox=\"0 0 25 15\"><g transform=\"translate(-13.248183,-266.06487)\"><g transform=\"matrix(1,0,0,-1,13.096211,562.73943)\"><a><rect id=\"arrow\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" width=\"4.2763052\" height=\"18.842487\" x=\"-201.41176\" y=\"200.46681\" transform=\"rotate(-45)\" ry=\"1.984375\" rx=\"1.984375\" /></a><rect id=\"arrow\" transform=\"rotate(45)\" ry=\"1.984375\" y=\"182.56927\" x=\"215.03299\" height=\"18.842487\" width=\"4.2763052\" style=\"opacity:1;fill:lightgrey;fill-opacity:1;stroke:none;stroke-width:0.26458332\" rx=\"1.984375\" /></g></g></svg>";
-
+/*
 window.onerror = function (msg, u, l, columnNo) {
     if (cookieReadFlag == 0) { DefaultCookieRead(); }
 
@@ -69,7 +69,7 @@ window.onerror = function (msg, u, l, columnNo) {
     }
 
     return true;
-};
+}; */
 
 
 function HttpErrorPost(url, params, callback) {
@@ -185,9 +185,7 @@ function divcreator(idname, where, classname) {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
         if ((classname == "eventcontainer") | (iDiv.id == "descriptioncontainer")) {
             document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;');
-            document.getElementById(iDiv.id).style.boxShadow = "0px 0px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px 0px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.MozBoxShadow = "0px 0px 10px 1px #060606";
+
         }
         if (iDiv.id == "footer_created") {
             document.getElementById(iDiv.id).setAttribute('style', 'color: grey;');
@@ -197,9 +195,7 @@ function divcreator(idname, where, classname) {
         }
         if (classname == "daycontainer") {
             document.getElementById(iDiv.id).setAttribute('style', 'margin: 52px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-top: #2e2b35 solid 1px;padding-bottom: 2px;background-image:radial-gradient(500% 100% at bottom,#23272A00 0%,#17141f 100%);border-radius: 15px 15px 0px 0px;');
-            document.getElementById(iDiv.id).style.boxShadow = "0px -15px 10px 1px #06060680";
-            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
-            document.getElementById(iDiv.id).style.MozBoxShadow = "0px -15px 10px 1px #06060680";
+
         }
         if (iDiv.id == "0_day_created") {
             document.getElementById(iDiv.id).style.margin = "0px 0px 22px 0px";
@@ -436,36 +432,44 @@ function TimeConvert(a) {
 function Light(length) {
     if (readyStyleFlag == 1) {
         for (var i = 0; i < length; i++) {
+            eventConteiner = document.getElementById(i + "_created");
+            dayContainer = document.getElementById(i + "_day_created");
+            descriptionContainer = document.getElementById(i + "_description_created");
+
             document.getElementById(i + "_arrow").style.filter = "invert(100%)";
             try {
-                document.getElementById(i + "_day_created").style.color = "#969696";
-                document.getElementById(i + "_day_created").style.textShadow = "2px 2px #cecece";
-                document.getElementById(i + "_day_created").style.borderTop = "2px solid #e5e3e8";
-                document.getElementById(i + "_day_created").style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#e5e3e8 100%";
-                document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #efefef";
-                document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
-                document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #efefef";
+                dayContainer.style.color = "#969696";
+                dayContainer.style.textShadow = "2px 2px #cecece";
+                dayContainer.style.borderTop = "2px solid #e5e3e8";
+                dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#e5e3e8 100%";
+                dayContainer.style.boxShadow = "0px -15px 10px 1px #efefef";
+                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
+                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #efefef";
 
             }
             catch (err) {
 
             }
-            if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
-                document.getElementById(i + "_description_created").style.backgroundColor = "white";
-                document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
-                document.getElementById(i + "_description_created").style.color = "black";
 
+            eventConteiner.style.boxShadow = "0px 0px 10px 1px #06060680";
+            eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #06060680";
+            eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #06060680";
+
+            eventConteiner.style.backgroundColor = "white";
+            eventConteiner.style.border = "1px solid #e5e3e8";
+            eventConteiner.style.color = "black";
+
+            if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
             } else {
-                document.getElementById(i + "_created").style.backgroundColor = "white";
-                document.getElementById(i + "_created").style.border = "1px solid #e5e3e8";
-                document.getElementById(i + "_created").style.color = "black";
-                document.getElementById(i + "_description_created").style.backgroundColor = "white";
-                document.getElementById(i + "_description_created").style.border = "1px solid #e5e3e8";
-                document.getElementById(i + "_description_created").style.color = "black";
+                descriptionContainer.style.backgroundColor = "white";
+                descriptionContainer.style.border = "1px solid #e5e3e8";
+                descriptionContainer.style.color = "black";
             }
         }
     }
 
+    document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL.png)";
+    document.body.style.backgroundRepeat = "repeat";
 
     document.body.style.Color = "black";
     document.body.style.backgroundColor = "#faf9fa";
@@ -479,48 +483,52 @@ function Light(length) {
 }
 
 function Dark(length) {
+
     if (readyStyleFlag == 1) {
+        var eventConteiner;
         for (var i = 0; i < length; i++) {
+            eventConteiner = document.getElementById(i + "_created");
+            dayContainer = document.getElementById(i + "_day_created");
+            descriptionContainer = document.getElementById(i + "_description_created");
+
             document.getElementById(i + "_arrow").style.filter = "invert(0%)";
             try {
-                document.getElementById(i + "_day_created").style.color = "lightgrey";
-                document.getElementById(i + "_day_created").style.textShadow = "2px 2px #484848";
-                document.getElementById(i + "_day_created").style.borderTop = "2px solid #2e2b35";
-                document.getElementById(i + "_day_created").style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#2e2b35 100%";
-                document.getElementById(i + "_day_created").style.boxShadow = "0px -15px 10px 1px #060606";
-                document.getElementById(i + "_day_created").style.webkitBoxShadow = "0px -15px 10px 1px #060606";
-                document.getElementById(i + "_day_created").style.MozBoxShadow = "0px -15px 10px 1px #060606";
+                dayContainer.style.color = "lightgrey";
+                dayContainer.style.textShadow = "2px 2px #484848";
+                dayContainer.style.borderTop = "2px solid #2e2b35";
+                dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#2e2b35 100%";
+                dayContainer.style.boxShadow = "0px -15px 10px 1px #060606";
+                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #060606";
+                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #060606";
 
 
             } catch (err) {
 
             }
+
+            eventConteiner.style.boxShadow = "0px 0px 10px 1px #060606";
+            eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #060606";
+            eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #060606";
+
+
+            eventConteiner.style.backgroundColor = "#17141f";
+            eventConteiner.style.border = "1px solid #2e2b35";
+            eventConteiner.style.color = "#c3c1c8";
+
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
-                document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
-                document.getElementById(i + "_description_created").style.border = "1px solid #2e2b35";
-                document.getElementById(i + "_description_created").style.color = "#c3c1c8";
             } else {
-                document.getElementById(i + "_created").style.backgroundColor = "#17141f";
-                document.getElementById(i + "_created").style.border = "1px solid #2e2b35";
-                document.getElementById(i + "_created").style.color = "#c3c1c8";
-                document.getElementById(i + "_description_created").style.backgroundColor = "#17141f";
-                document.getElementById(i + "_description_created").style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
-                document.getElementById(i + "_description_created").style.color = "#c3c1c8";
+
+                descriptionContainer.style.backgroundColor = "#17141f";
+                descriptionContainer.style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
+                descriptionContainer.style.color = "#c3c1c8";
             }
         }
         document.body.style.Color = "#c3c1c8";
-        //document.body.style.backgroundColor = "#0e0c13";
-        
+
         document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternD.png)";
-        document.body.style.backgroundRepeat ="repeat";
-        
-        //document.body.style.backgroundColor = "";
-        var mainCenter = document.getElementsByTagName('center')[0];
-        //mainCenter.style.backgroundImage = "";
-        //mainCenter.style.height = "100%";
-        
-       
-       /*Változtatás : A lenti két dolog, hogy ezek is visszaváltozanak témaváltoztatásnál az oldal újratöltése nélkül, illetve vent a border-t: */
+        document.body.style.backgroundRepeat = "repeat";
+
+        /*Változtatás : A lenti két dolog, hogy ezek is visszaváltozanak témaváltoztatásnál az oldal újratöltése nélkül, illetve vent a border-t: */
         document.getElementsByClassName("modal-content")[0].style.color = "#c3c1c8";
         document.getElementsByClassName("modal-content")[0].style.backgroundColor = "#17141f";
         var meta = document.createElement("meta");
@@ -1145,7 +1153,10 @@ function HtmlStart() {
     //Ha a téma világos akkor a létrehozott DIV-eket átállítjuk
     if (themeStatus == "light") {
         Light(eventsLength);
+    } else {
+        Dark(eventsLength);
     }
+
     //Footer Áthelejés
     divcreator("footer", "body");
     MoveParent("footer_created");
