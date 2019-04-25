@@ -504,7 +504,7 @@ function Dark(length) {
             try {
                 dayContainer.style.color = "lightgrey";
                 dayContainer.style.textShadow = "2px 2px #484848";
-                dayContainer.style.borderTop = "1px solid #444444";
+                dayContainer.style.borderTop = "1px solid #444444"; 
                 dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#28272a 100%";
                 dayContainer.style.boxShadow = "0px -15px 10px 1px #06060680";
                 dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
