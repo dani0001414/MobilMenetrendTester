@@ -472,7 +472,7 @@ function Light(length) {
         
 
 
-        document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL .png)";
+        document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL.png)";
         document.body.style.backgroundRepeat = "repeat";
 
         document.body.style.Color = "black";
