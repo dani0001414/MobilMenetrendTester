@@ -154,16 +154,16 @@ function dependSizeScript() {
             for (var i = 0; i < elements.length; i++) {
                 elements[i].style.width = "100%";
                 if (themeStatus == "light") {
-                    elements[i].style.boxShadow = "0px -15px 10px 1px #efefef80";
-                    elements[i].style.webkitBoxShadow = "0px -15px 10px 1px #efefef80";
-                    elements[i].style.MozBoxShadow = "0px -15px 10px 1px #efefef80";
-                }
-                if (themeStatus != "light") {
                     elements[i].style.boxShadow = "06060615 0px -15px 10px 1px";
                     elements[i].style.webkitBoxShadow = "06060615 0px -15px 10px 1px";
                     elements[i].style.MozBoxShadow = "06060615 0px -15px 10px 1px";
+                }
+                if (themeStatus != "light") {
+                    elements[i].style.boxShadow = "0px -15px 10px 1px #06060680";
+                    elements[i].style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
+                    elements[i].style.MozBoxShadow = "0px -15px 10px 1px #06060680";
 
-              
+                    
                 }
             }
             for (var j = 0; j < modalContent.length; j++) {
