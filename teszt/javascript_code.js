@@ -464,15 +464,15 @@ function Light(length) {
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
 
             } else {
-                eventConteiner.style.backgroundColor = "#dddce0";
-                eventConteiner.style.border = "1px solid #6b6b6b";
+                eventConteiner.style.backgroundColor = "white";
+                eventConteiner.style.border = "1px solid #dddce0";
                 eventConteiner.style.color = "black";
             }
         }
         
 
 
-        document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL.png)";
+        document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternL .png)";
         document.body.style.backgroundRepeat = "repeat";
 
         document.body.style.Color = "black";
