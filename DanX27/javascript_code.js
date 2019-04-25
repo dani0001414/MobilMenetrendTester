@@ -440,9 +440,9 @@ function Light(length) {
                 dayContainer.style.textShadow = "2px 2px #cecece";
                 dayContainer.style.borderTop = "1px solid #e5e3e8";
                 dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#e5e3e8 100%";
-                dayContainer.style.boxShadow = "0px -15px 10px 1px #efefef";
-                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #efefef";
-                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #efefef";
+                dayContainer.style.boxShadow = "0px -15px 10px 1px #efefef80";
+                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #efefef80";
+                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #efefef80";
 
             }
             catch (err) {
@@ -500,9 +500,9 @@ function Dark(length) {
                 dayContainer.style.textShadow = "2px 2px #484848";
                 dayContainer.style.borderTop = "1px solid #2e2b35";
                 dayContainer.style.backgroundImage = "radial-gradient(500% 100% at bottom,#23272A00 0%,#17141f 100%";
-                dayContainer.style.boxShadow = "0px -15px 10px 1px #060606";
-                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #060606";
-                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #060606";
+                dayContainer.style.boxShadow = "0px -15px 10px 1px #06060680";
+                dayContainer.style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
+                dayContainer.style.MozBoxShadow = "0px -15px 10px 1px #06060680";
 
 
             } catch (err) {
