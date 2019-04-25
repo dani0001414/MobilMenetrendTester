@@ -449,15 +449,15 @@ function Light(length) {
 
             }
 
-            eventConteiner.style.boxShadow = "0px 0px 10px 1px #06060680";
-            eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #06060680";
-            eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #06060680";
-            descriptionContainer.style.boxShadow = "0px 5px 10px 1px #06060680";
-            descriptionContainer.style.webkitBoxShadow = "0px 5px 10px 1px #06060680";
-            descriptionContainer.style.MozBoxShadow = "0px 5px 10px 1px #06060680";
+            eventConteiner.style.boxShadow = "0px 0px 10px 1px #06060640";
+            eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #06060640";
+            eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #06060640";
+            descriptionContainer.style.boxShadow = "0px 5px 10px 1px #06060640";
+            descriptionContainer.style.webkitBoxShadow = "0px 5px 10px 1px #06060640";
+            descriptionContainer.style.MozBoxShadow = "0px 5px 10px 1px #06060640";
 
-            descriptionContainer.style.backgroundColor = "#dddce0";
-            descriptionContainer.style.border = "1px solid #6b6b6b";
+            descriptionContainer.style.backgroundColor = "white";
+            descriptionContainer.style.border = "1px solid #dddce0";
             descriptionContainer.style.color = "black";
 
 
@@ -472,7 +472,7 @@ function Light(length) {
         
 
 
-        document.body.style.backgroundImage = "linear-gradient(to right, #dedede99, #23272A00, #dedede99), url(patternL.png)";
+        document.body.style.backgroundImage = "linear-gradient(to right, #ffffff66, #23272A00, #ffffff66), url(patternL.png)";
         document.body.style.backgroundRepeat = "repeat";
 
         document.body.style.Color = "black";
