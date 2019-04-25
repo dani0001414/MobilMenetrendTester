@@ -1318,7 +1318,7 @@ function OfflineSite() {
         divcreator(titleId, i);
         divcreator(coverId, i);
         divcreator(timeId, i);
-        document.getElementById(i + "_created").innerHTML += "<span id=\"streamspan\" style=\"cursor:pointer;\" onclick=\"hide_and_show('" + i + "_description_created'," + i + ")\">" + svgArrowDown + "</span>";
+        document.getElementById(i + "_created").innerHTML += "<span id=\"streamspan\" style=\"cursor:pointer;\" onclick=\"hide_and_show('" + i + "_description_created'," + i + ")\"><span id=" + i + "_arrow style=\"display: block; padding: 10 0 10 0\">" + svgArrowDown + "</span></span>";
         divcreator(i + "_description", "body", "descriptioncontainer");
         divcreator(i + "_spacer", "body", "eventspacer");
         /*Feltölteni kívánt Div-ek megjelenítése a rejtésből és adatokkal való feltöltésük*/
