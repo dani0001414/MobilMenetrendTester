@@ -2,7 +2,7 @@
 /*Streamer adatok megadása*/
 
 //A twitch neved amivel a csatorna elérhető --> http://twitch.tv/twitchneved.
-var streamer = "danx27";
+var streamer = "avid_is_odd";
 //Kép megjelenítése amikor üres a menetrend.
 var noEventsPic = "https://peldakep.hu/kep.png";
 //Kép megjelenítése amikor offline a menetrend(nembiztos, hogy megjelenik majd offline állapotban)

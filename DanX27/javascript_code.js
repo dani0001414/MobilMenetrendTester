@@ -159,9 +159,9 @@ function dependSizeScript() {
                     elements[i].style.MozBoxShadow = "0px -15px 10px 1px #efefef";
                 }
                 if (themeStatus != "light") {
-                    elements[i].style.boxShadow = "0px -15px 10px 1px #060606";
-                    elements[i].style.webkitBoxShadow = "0px -15px 10px 1px #060606";
-                    elements[i].style.MozBoxShadow = "0px -15px 10px 1px #060606";
+                    elements[i].style.boxShadow = "0px -15px 10px 1px #06060680";
+                    elements[i].style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
+                    elements[i].style.MozBoxShadow = "0px -15px 10px 1px #06060680";
                 }
             }
             for (var j = 0; j < modalContent.length; j++) {
@@ -185,6 +185,9 @@ function divcreator(idname, where, classname) {
         document.getElementsByTagName('center')[0].appendChild(iDiv);
         if ((classname == "eventcontainer") | (iDiv.id == "descriptioncontainer")) {
             document.getElementById(iDiv.id).setAttribute('style', 'margin-top: 8px; width:320px; background-color:#17141f; border:1px solid #2e2b35;');
+            document.getElementById(iDiv.id).style.boxShadow = "0px 0px 10px 1px #060606";
+            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px 0px 10px 1px #060606";
+            document.getElementById(iDiv.id).style.MozBoxShadow = "0px 0px 10px 1px #060606";
         }
         if (iDiv.id == "footer_created") {
             document.getElementById(iDiv.id).setAttribute('style', 'color: grey;');
@@ -193,10 +196,10 @@ function divcreator(idname, where, classname) {
             document.getElementById(iDiv.id).style.height = "4px";
         }
         if (classname == "daycontainer") {
-            document.getElementById(iDiv.id).setAttribute('style', 'margin: 52px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-top: #2e2b35 solid 2px;padding-bottom: 2px;background-image:radial-gradient(500% 100% at bottom,#23272A00 0%,#2e2b35 100%);border-radius: 15px 15px 0px 0px;');
-            document.getElementById(iDiv.id).style.boxShadow = "0px -15px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px -15px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.MozBoxShadow = "0px -15px 10px 1px #060606";
+            document.getElementById(iDiv.id).setAttribute('style', 'margin: 52px 0px 22px 0px; width: 100%; color: lightgrey;text-shadow: 2px 2px #484848;border-top: #2e2b35 solid 1px;padding-bottom: 2px;background-image:radial-gradient(500% 100% at bottom,#23272A00 0%,#17141f 100%);border-radius: 15px 15px 0px 0px;');
+            document.getElementById(iDiv.id).style.boxShadow = "0px -15px 10px 1px #06060680";
+            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px -15px 10px 1px #06060680";
+            document.getElementById(iDiv.id).style.MozBoxShadow = "0px -15px 10px 1px #06060680";
         }
         if (iDiv.id == "0_day_created") {
             document.getElementById(iDiv.id).style.margin = "0px 0px 22px 0px";
@@ -204,6 +207,9 @@ function divcreator(idname, where, classname) {
         }
         if (classname == "descriptioncontainer") {
             document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;');
+            document.getElementById(iDiv.id).style.boxShadow = "0px 5px 10px 1px #060606";
+            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px 5px 10px 1px #060606";
+            document.getElementById(iDiv.id).style.MozBoxShadow = "0px 5px 10px 1px #060606";
         }
         if (iDiv.id == "footer_created") {
             document.getElementById(iDiv.id).style.margin = "15px 0px 0px 0px";
@@ -505,8 +511,14 @@ function Dark(length) {
         document.body.style.Color = "#c3c1c8";
         //document.body.style.backgroundColor = "#0e0c13";
         
+        document.body.style.backgroundImage = "linear-gradient(to right, #0e0c1399, #23272A00, #0e0c1399), url(patternD.png)";
+        document.body.style.backgroundRepeat ="repeat";
+        
         //document.body.style.backgroundColor = "";
-       // document.getElementsByTagName('center')[0].style.backgroundColor = "#0e0c13";
+        var mainCenter = document.getElementsByTagName('center')[0];
+        //mainCenter.style.backgroundImage = "";
+        //mainCenter.style.height = "100%";
+        
        
        /*Változtatás : A lenti két dolog, hogy ezek is visszaváltozanak témaváltoztatásnál az oldal újratöltése nélkül, illetve vent a border-t: */
         document.getElementsByClassName("modal-content")[0].style.color = "#c3c1c8";
