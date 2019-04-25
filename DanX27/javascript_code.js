@@ -464,8 +464,8 @@ function Light(length) {
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
 
             } else {
-                eventConteiner.style.backgroundColor = "white";
-                eventConteiner.style.border = "1px solid #e5e3e8";
+                eventConteiner.style.backgroundColor = "#dddce0";
+                eventConteiner.style.border = "1px solid #6b6b6b";
                 eventConteiner.style.color = "black";
             }
         }
