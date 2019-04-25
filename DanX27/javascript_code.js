@@ -203,9 +203,7 @@ function divcreator(idname, where, classname) {
         }
         if (classname == "descriptioncontainer") {
             document.getElementById(iDiv.id).setAttribute('style', 'display: none; width:320px; background-color:#17141f; border:1px solid #2e2b35;');
-            document.getElementById(iDiv.id).style.boxShadow = "0px 5px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.webkitBoxShadow = "0px 5px 10px 1px #060606";
-            document.getElementById(iDiv.id).style.MozBoxShadow = "0px 5px 10px 1px #060606";
+            
         }
         if (iDiv.id == "footer_created") {
             document.getElementById(iDiv.id).style.margin = "15px 0px 0px 0px";
@@ -454,9 +452,12 @@ function Light(length) {
             eventConteiner.style.boxShadow = "0px 0px 10px 1px #06060680";
             eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #06060680";
             eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #06060680";
+            descriptionContainer.style.boxShadow = "0px 5px 10px 1px #06060680";
+            descriptionContainer.style.webkitBoxShadow = "0px 5px 10px 1px #06060680";
+            descriptionContainer.style.MozBoxShadow = "0px 5px 10px 1px #06060680";
 
-            descriptionContainer.style.backgroundColor = "white";
-            descriptionContainer.style.border = "1px solid #e5e3e8";
+            descriptionContainer.style.backgroundColor = "#dddce0";
+            descriptionContainer.style.border = "1px solid #6b6b6b";
             descriptionContainer.style.color = "black";
 
 
@@ -511,6 +512,9 @@ function Dark(length) {
             eventConteiner.style.boxShadow = "0px 0px 10px 1px #060606";
             eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #060606";
             eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #060606";
+            descriptionContainer.style.boxShadow = "0px 5px 10px 1px #060606";
+            descriptionContainer.style.webkitBoxShadow = "0px 5px 10px 1px #060606";
+            descriptionContainer.style.MozBoxShadow = "0px 5px 10px 1px #060606";
 
             descriptionContainer.style.backgroundColor = "#17141f";
             descriptionContainer.style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
