@@ -455,15 +455,17 @@ function Light(length) {
             eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #06060680";
             eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #06060680";
 
-            eventConteiner.style.backgroundColor = "white";
-            eventConteiner.style.border = "1px solid #e5e3e8";
-            eventConteiner.style.color = "black";
+            descriptionContainer.style.backgroundColor = "white";
+            descriptionContainer.style.border = "1px solid #e5e3e8";
+            descriptionContainer.style.color = "black";
+
 
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
+
             } else {
-                descriptionContainer.style.backgroundColor = "white";
-                descriptionContainer.style.border = "1px solid #e5e3e8";
-                descriptionContainer.style.color = "black";
+                eventConteiner.style.backgroundColor = "white";
+                eventConteiner.style.border = "1px solid #e5e3e8";
+                eventConteiner.style.color = "black";
             }
         }
     }
@@ -510,17 +512,18 @@ function Dark(length) {
             eventConteiner.style.webkitBoxShadow = "0px 0px 10px 1px #060606";
             eventConteiner.style.MozBoxShadow = "0px 0px 10px 1px #060606";
 
-
-            eventConteiner.style.backgroundColor = "#17141f";
-            eventConteiner.style.border = "1px solid #2e2b35";
-            eventConteiner.style.color = "#c3c1c8";
+            descriptionContainer.style.backgroundColor = "#17141f";
+            descriptionContainer.style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
+            descriptionContainer.style.color = "#c3c1c8";
+           
 
             if ((i == 0) & (liveStatus == "live") & ((liveTimestamp < streamEndZeroElement + 3000) & (liveTimestamp > streamStartZeroElement - 3000))) {
+               
             } else {
-
-                descriptionContainer.style.backgroundColor = "#17141f";
-                descriptionContainer.style.border = "1px solid #2e2b35"; /*Változtatás ezt itt*/
-                descriptionContainer.style.color = "#c3c1c8";
+                eventConteiner.style.backgroundColor = "#17141f";
+                eventConteiner.style.border = "1px solid #2e2b35";
+                eventConteiner.style.color = "#c3c1c8";
+                
             }
         }
         document.body.style.Color = "#c3c1c8";
