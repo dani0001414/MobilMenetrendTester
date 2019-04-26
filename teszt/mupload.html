@@ -1,0 +1,13 @@
+<script>
+    window.onload = (event) => {
+
+document.getElementById("urlhref").setAttribute('value',window.location.href);
+ }
+    </script>
+<form action="https://mobilmenetrend.000webhostapp.com/test.php" method="post">
+    Cím:<br><input type="text" name="title" value=""><br>
+    Leírás:<br><input type="text" name="description" value=""><br>
+    Idő:<br><input type="text" name="time" value= ""><br>
+    <input id="urlhref" style="display:none" type="text" name="url"> 
+    <input type="submit" id ="submitButton" value="Submit">
+</form>
